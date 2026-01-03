@@ -67,7 +67,7 @@
         <h2>Contact Me</h2>
         <p>If you have a project or just want to say hello, send a message using the form below.</p>
 
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" action="" method="post">
           <div class="form-row">
             <label for="name">Name</label>
             <input
@@ -160,37 +160,44 @@
 </script>
 
 <script>
-  const scriptURL = https://script.google.com/macros/s/AKfycbwucXNYu_2zKzLC0yPS6i7FTsjLflRRsW4773scgGdX7GmIz7z3u9TJO3w_76iixsHe/exec; // Double-check this URL
+  const formspreeURL = 'https://formspree.io/f/mreblnvp'; // Paste your Formspree endpoint
 
-  const form = document.getElementById('contact-form'); // Match your form ID
-  const statusEl = document.getElementById('form-status'); // Match your status ID
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
-
-    const formData = new FormData(form); // This handles all inputs automatically
-
+    
+    const formData = new FormData(form);
     statusEl.textContent = 'Sending...';
 
-    fetch(scriptURL, {
-      method: 'POST',
-      mode: 'no-cors', // Required for Apps Script + static sites
-      body: formData // FormData instead of JSON
-    })
-    .then(() => {
-      statusEl.innerHTML = '<span style="color: green;">Message sent successfully!</span>';
-      form.reset();
-    })
-    .catch((error) => {
-      console.error('Error!', error);
-      statusEl.innerHTML = '<span style="color: red;">Something went wrong. Please try again.</span>';
-    });
+    try {
+      const response = await fetch(formspreeURL, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        statusEl.innerHTML = '<span style="color: green;">✅ Message sent successfully! I\'ll reply soon.</span>';
+        form.reset();
+      } else {
+        statusEl.innerHTML = '<span style="color: red;">❌ Error sending. Please try again.</span>';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      statusEl.innerHTML = '<span style="color: red;">❌ Network error. Check connection.</span>';
+    }
   });
 </script>
+
 
   
 </body>
 </html>
+
 
 
 
