@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structural Steel Weight Calculator - Your Name</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HgmUkgKagXHK0WL8tWXLEeHibc8QTn_EdEGxTWCFj_tcRYqlqsIA9R6MUi0SJ_4la0c1kYbSB9iplVihl-QUCNlTRVIVsce9soaH8NFm43pXhNymOCDWUZK1BgdL9XJPn_sOESF-VtRj7mdGba_CKwSZXyVYI5gMIvTmIMxgBnsVRfymvhIOqt7JmoQDPTcDQGW47WRPOslfpbelFQNtAyLxRk03yx1aUIXYmDxLz4fS6PV6Pj4qXA4Z9ZIfX-1LadRW9r7F9Ie2j5TRtooDlnld1jy4TRH9SqOm-h17F0L2ySMctgcFeswI8UpLk-BmNU4cE0MbgudVS5oUTXugaYWZHZ_-MJ54NOK2EOxI7IsNeoqwdgHXN7RLkH7lKaCiEAWqLl2dSL_D4KYeHfbuT_6KgQt-Jm4CBfYe4Ghjo0eROyRmjZeKpiF-sAxngIUSwrdhJqKrnvmIt_AL5r4bKJETr71cVUjecKBWj2BSbzNjGAQFXCZMAWb8_V-mrAmCm1H35kMvtJ5m0kMLYU7_EFnAB1nkPEuqWLfh3U8yyNiQ2oMPothMsTpk7seDEZ-wnWGhZgieO5v9o2Yie3lQx5VVDNxCev_0X0IHZwjiT3ulOpduvhIyONNHI7ZffC37yv3K35gFYwH_RMaull7dAaHFGpsR1DKUwuFq0YUx4Sypv24ab2ChRVjiTpjmdoyxE5Z1mo9D-mPd6NfX5AwjWXXwVvXB7o3qs9dLoLDYvmCvMRl98cS8xUfftM80-yDQPLbHKy8fsN2__o_AAgHGJit6L-no7KkYS8iJFVhnt4NT7Rbl26Qs6IkRHx6OWimkqu3HJuA8iucM2GXqt1IhK3GoSyzH6A0_Lxr4I3WezMHyVY_zNsejYZhWut0XNH3VmbO31z4Vh_AKciMTlAFsbtjR-Y-NjDcah0CYNBBntqEjoepP9Sk81lKdUy-kMvpcBl2ObERivcxbuPwBu5a8b_tOzpuxS8obvIP8t9efxYz4grhWSdrFEsrajCSDsTnEkGQSfhXCMdk6XoGHkQtNBxguD6pLzOG4d_pxRCYUYVh5XB76o_EsYSxNSUy2BbRQ6o6RHg6iBFGUZbl-AHlL3v8WGsumkcWP-sTJIQkb4X09YAWDmmgU8GgPQtcyFBGdrOXk11Rw58LdljV98Sga_-9d256z_DTSSGkp-WR76PpUP3r1MIYv2MdekojXID67Nn2iWCzeZTRqNsSz9KmKgf2zVqsYYj5DL5_N9QyqyNlAJ8dkIx5Zfr1A80-6Oc55Xz3WWjbXnbAPl3dxS-DYXQ9nxpXJHvHeuw-76wj5WeW8wh72CO9bgp7cT7u5uD39HaJPvuWmxp_MXtp_leCO1-viESUJgdq1QpDQiKEm6JPduEuOmXzkocpmiyKCqI-AVQaKwCr75r4QbF4IZXXnnM72aayw3mwuUmCs9ZMeYnzwUJY9ie6S3-wQA-ON-m_09Z3D4A5xOYOf7dxXCQTN1nRW6JN1CMZszqIbFRKVuw4jd2kryFpuOwtKJEFW-0Je2c_dC74TAt9haa5QxRQIUVO34Ypm4M6xQZZ77A5rsKWRj1jxoRSzXK-PWFkA3aKdLBfmDyX-HpcpvoLGXojlNtPNUkjfK9T9AN6vX-tTLmxu0I7lLS0wlzWz55Lyun-p" nonce="bde26916b5d1d54a014a57827772afc8" charset="UTF-8"></script><style>
+    body { background: radial-gradient(circle at top, #1e293b, #020617); min-height: 100vh; }
+    .steel-hero { padding: 4rem 0; text-align: center; }
+    .steel-hero h1 { color: var(--text-main); font-size: 3rem; margin-bottom: 0.5rem; }
+    .steel-hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 3rem; }
+  </style>
+</head>
+
+<header class="subpage-header">
+  <div class="container">
+    <div class="subpage-header-content">
+      <div class="profile-photo-wrapper">
+        <img src="Profile Photo.jpg" alt="Saurav Dey" class="profile-photo" />
+      </div>
+      <h1 class="subpage-name">Saurav Dey</h1>
+    </div>
+  </div>
+</header>
+
+
+
+
+<body>
+  <div class="steel-hero">
+    <h1>Structural Steel Weight Calculator</h1>
+    <p>Calculate weights for steel plates and standard sections instantly.</p>
+  </div>
+
+  <section class="steel-tabs-section">
+    <div class="container">
+      <div class="steel-tabs-nav">
+        <button class="steel-tab-btn active" onclick="openSteelTab('plates')">Steel Plates</button>
+        <button class="steel-tab-btn" onclick="openSteelTab('sections')">Standard Sections</button>
+      </div>
+      
+      <!-- Steel Plates Tab -->
+      <div id="plates" class="steel-tab-content active">
+        <div class="calc-container">
+          <div class="input-group">
+            <label>Thickness (mm)</label>
+            <input type="number" id="plateThickness" placeholder="e.g. 12" step="0.1" min="0.1">
+          </div>
+          <div class="input-group">
+            <label>Width (m)</label>
+            <input type="number" id="plateWidth" placeholder="e.g. 1.0" step="0.01" min="0.01">
+          </div>
+          <div class="input-group">
+            <label>Length (m)</label>
+            <input type="number" id="plateLength" placeholder="e.g. 6" step="0.1" min="0.1">
+          </div>
+          <div class="result-group">
+            <h3>Weight: <span id="plateWeight">0.00</span> kg</h3>
+          </div>
+          <button class="btn-primary" onclick="calculatePlateWeight()">Calculate</button>
+	  <div class="back-home-wrapper">
+            <a href="Index.html" class="back-home-btn" title="Back to Home">
+              ←
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Standard Sections Tab - UPDATED -->
+      <div id="sections" class="steel-tab-content">
+        <div class="calc-container">
+          <div class="input-group">
+            <label>Section Type</label>
+            <select id="sectionType" onchange="updateSectionSizes()">
+              <option value="">Select Section Type</option>
+              <option value="ISMB">ISMB (Medium Beams)</option>
+              <option value="ISMC">ISMC (Medium Channels)</option>
+              <option value="ISA">ISA (Equal Angles)</option>
+            </select>
+          </div>
+    
+          <div class="input-group">
+            <label>Section Size</label>
+            <select id="sectionSize" disabled>
+              <option value="">Select section type first</option>
+            </select>
+          </div>
+    
+          <button class="btn-primary generate-btn" onclick="generateSectionData()" style="display: none;" id="generateBtn">
+            Generate Properties
+          </button>
+	  <div class="back-home-wrapper">
+  <a href="Index.html" class="back-home-btn" title="Back to Home">←</a>
+</div>
+
+    
+          <!-- Results Section -->
+          <div id="resultsSection" class="results-section" style="display: none;">
+            <div class="result-group">
+              <h3>Weight per meter: <span id="sectionWeight">0.00</span> <span style="font-size: 1.2rem;">kg/m</span></h3>
+            </div>
+            <div class="properties-buttons">
+              <button class="btn-secondary" onclick="showProperties()">See more properties</button>
+            </div>
+
+
+          </div>
+        </div>
+  
+        <!-- Properties Modal -->
+        <div id="propertiesModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeProperties()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <div id="propertiesData" class="properties-grid"></div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <script>
+  // IS 808:1989 EXPANDED DATA [file:117]
+  const sectionData = {
+    ISMB: {
+      '100': { weight: 8.9, area: 11.4, depth: 100, flangeWidth: 50, flangeThick: 7.0, webThick: 4.7, Ix: 183, Iy: 12.9, rx: 4.00, ry: 1.05, Zx: 36.6, Zy: 5.16 },
+      '125': { weight: 13.3, area: 17.0, depth: 125, flangeWidth: 70, flangeThick: 8.0, webThick: 4.7, Ix: 445, Iy: 38.5, rx: 5.16, ry: 1.51, Zx: 71.2, Zy: 11.0 },
+      '150': { weight: 19.1, area: 24.3, depth: 150, flangeWidth: 75, flangeThick: 9.0, webThick: 5.0, Ix: 718, Iy: 46.8, rx: 6.13, ry: 1.57, Zx: 95.7, Zy: 12.5 },
+      '175': { weight: 19.6, area: 25.0, depth: 175, flangeWidth: 85, flangeThick: 10.0, webThick: 5.8, Ix: 1260, Iy: 76.7, rx: 7.13, ry: 1.75, Zx: 144, Zy: 18.0 },
+      '200': { weight: 24.2, area: 30.8, depth: 200, flangeWidth: 100, flangeThick: 11.0, webThick: 5.7, Ix: 2120, Iy: 137, rx: 8.29, ry: 2.11, Zx: 212, Zy: 27.4 },
+      '225': { weight: 31.1, area: 39.7, depth: 225, flangeWidth: 110, flangeThick: 12.0, webThick: 6.5, Ix: 3440, Iy: 218, rx: 9.31, ry: 2.34, Zx: 306, Zy: 39.7 },
+      '250': { weight: 37.3, area: 47.5, depth: 250, flangeWidth: 125, flangeThick: 13.0, webThick: 6.9, Ix: 5130, Iy: 335, rx: 10.4, ry: 2.65, Zx: 410, Zy: 53.5 },
+      '300': { weight: 46.0, area: 58.6, depth: 300, flangeWidth: 140, flangeThick: 14.0, webThick: 7.7, Ix: 8990, Iy: 486, rx: 12.4, ry: 2.86, Zx: 599, Zy: 69.5 },
+      '350': { weight: 52.4, area: 66.7, depth: 350, flangeWidth: 140, flangeThick: 14.0, webThick: 8.1, Ix: 13600, Iy: 538, rx: 14.3, ry: 2.84, Zx: 779, Zy: 76.8 },
+      '400': { weight: 61.5, area: 78.4, depth: 400, flangeWidth: 160, flangeThick: 14.0, webThick: 8.9, Ix: 20500, Iy: 622, rx: 16.2, ry: 2.82, Zx: 1020, Zy: 88.9 },
+      '450': { weight: 72.4, area: 92.2, depth: 450, flangeWidth: 150, flangeThick: 17.4, webThick: 9.4, Ix: 30400, Iy: 834, rx: 18.2, ry: 3.01, Zx: 1350, Zy: 111 },
+      '500': { weight: 86.9, area: 111, depth: 500, flangeWidth: 180, flangeThick: 17.2, webThick: 10.2, Ix: 45200, Iy: 1370, rx: 20.2, ry: 3.52, Zx: 1810, Zy: 152 },
+      '550': { weight: 104, area: 132, depth: 550, flangeWidth: 190, flangeThick: 19.3, webThick: 11.2, Ix: 64900, Iy: 1830, rx: 22.2, ry: 3.73, Zx: 2360, Zy: 193 },
+      '600': { weight: 123, area: 156, depth: 600, flangeWidth: 210, flangeThick: 20.3, webThick: 12.0, Ix: 91800, Iy: 2650, rx: 24.2, ry: 4.12, Zx: 3060, Zy: 252 }
+    },
+    ISMC: {
+      '75': { weight: 7.14, area: 9.10, depth: 75, flangeWidth: 40, flangeThick: 7.5, webThick: 4.8, Ix: 132, Iy: 7.85, rx: 2.94, ry: 1.19, Zx: 20.9, Zy: 4.81 },
+      '100': { weight: 9.56, area: 12.2, depth: 100, flangeWidth: 50, flangeThick: 7.7, webThick: 5.0, Ix: 192, Iy: 26.7, rx: 3.97, ry: 1.48, Zx: 33.5, Zy: 7.71 },
+      '125': { weight: 13.1, area: 16.7, depth: 125, flangeWidth: 65, flangeThick: 8.2, webThick: 5.3, Ix: 425, Iy: 61.1, rx: 5.05, ry: 1.91, Zx: 68.1, Zy: 13.4 },
+      '150': { weight: 16.8, area: 21.3, depth: 150, flangeWidth: 75, flangeThick: 9.0, webThick: 5.7, Ix: 788, Iy: 103, rx: 6.08, ry: 2.20, Zx: 105, Zy: 19.5 },
+      '175': { weight: 19.6, area: 24.9, depth: 175, flangeWidth: 75, flangeThick: 10.2, webThick: 6.0, Ix: 1240, Iy: 122, rx: 7.04, ry: 2.21, Zx: 141, Zy: 23.0 },
+      '200': { weight: 22.3, area: 28.5, depth: 200, flangeWidth: 75, flangeThick: 11.4, webThick: 6.2, Ix: 1830, Iy: 141, rx: 8.02, ry: 2.22, Zx: 181, Zy: 26.4 },
+      '225': { weight: 26.1, area: 33.3, depth: 225, flangeWidth: 80, flangeThick: 12.4, webThick: 6.5, Ix: 2710, Iy: 188, rx: 9.02, ry: 2.37, Zx: 241, Zy: 33.0 },
+      '250': { weight: 30.6, area: 39.0, depth: 250, flangeWidth: 82, flangeThick: 14.1, webThick: 7.2, Ix: 3880, Iy: 211, rx: 9.92, ry: 2.37, Zx: 307, Zy: 38.5 },
+      '300': { weight: 36.3, area: 46.2, depth: 300, flangeWidth: 90, flangeThick: 13.6, webThick: 7.5, Ix: 5920, Iy: 344, rx: 11.2, ry: 2.73, Zx: 395, Zy: 76.4 },
+      '400': { weight: 50.1, area: 63.9, depth: 400, flangeWidth: 100, flangeThick: 15.3, webThick: 8.8, Ix: 11000, Iy: 621, rx: 13.1, ry: 3.12, Zx: 550, Zy: 124 }
+    },
+    ISA: {
+      '20x20x3': { weight: 0.9, area: 1.12, leg: 20, thick: 3, Ix: 0.4, Iy: 0.4, rx: 0.59, ry: 0.59, Zx: 0.5, Zy: 0.5 },
+      '20x20x4': { weight: 1.2, area: 1.53, leg: 20, thick: 4, Ix: 0.5, Iy: 0.5, rx: 0.63, ry: 0.63, Zx: 0.58, Zy: 0.58 },
+      '25x25x3': { weight: 1.1, area: 1.45, leg: 25, thick: 3, Ix: 1.1, Iy: 1.1, rx: 0.91, ry: 0.91, Zx: 0.73, Zy: 0.73 },
+      '25x25x4': { weight: 1.4, area: 1.84, leg: 25, thick: 4, Ix: 1.4, Iy: 1.4, rx: 0.91, ry: 0.91, Zx: 0.73, Zy: 0.73 },
+      '25x25x5': { weight: 1.7, area: 2.25, leg: 25, thick: 5, Ix: 1.8, Iy: 1.8, rx: 1.00, ry: 1.00, Zx: 0.91, Zy: 0.91 },
+      '30x30x3': { weight: 1.4, area: 1.73, leg: 30, thick: 3, Ix: 2.1, Iy: 2.1, rx: 1.13, ry: 1.13, Zx: 0.89, Zy: 0.89 },
+      '30x30x4': { weight: 1.8, area: 2.26, leg: 30, thick: 4, Ix: 2.8, Iy: 2.8, rx: 1.13, ry: 1.13, Zx: 0.89, Zy: 0.89 },
+      '30x30x5': { weight: 2.2, area: 2.77, leg: 30, thick: 5, Ix: 3.6, Iy: 3.6, rx: 1.20, ry: 1.20, Zx: 0.97, Zy: 0.97 },
+      '35x35x3': { weight: 1.7, area: 2.03, leg: 35, thick: 3, Ix: 4.1, Iy: 4.1, rx: 1.29, ry: 1.29, Zx: 1.12, Zy: 1.12 },
+      '35x35x4': { weight: 2.2, area: 2.64, leg: 35, thick: 4, Ix: 5.4, Iy: 5.4, rx: 1.33, ry: 1.33, Zx: 1.16, Zy: 1.16 },
+      '35x35x5': { weight: 2.7, area: 3.47, leg: 35, thick: 5, Ix: 7.1, Iy: 7.1, rx: 1.41, ry: 1.41, Zx: 1.25, Zy: 1.25 },
+      '35x35x6': { weight: 3.2, area: 4.11, leg: 35, thick: 6, Ix: 8.6, Iy: 8.6, rx: 1.45, ry: 1.45, Zx: 1.32, Zy: 1.32 },
+      '40x40x3': { weight: 2.0, area: 2.43, leg: 40, thick: 3, Ix: 6.0, Iy: 6.0, rx: 1.37, ry: 1.37, Zx: 1.20, Zy: 1.20 },
+      '40x40x4': { weight: 2.4, area: 3.07, leg: 40, thick: 4, Ix: 4.5, Iy: 4.5, rx: 1.21, ry: 1.21, Zx: 1.9, Zy: 1.9 },
+      '40x40x5': { weight: 3.3, area: 4.28, leg: 40, thick: 5, Ix: 10.8, Iy: 10.8, rx: 1.58, ry: 1.58, Zx: 1.53, Zy: 1.53 },
+      '40x40x6': { weight: 3.6, area: 4.59, leg: 40, thick: 6, Ix: 6.6, Iy: 6.6, rx: 1.20, ry: 1.20, Zx: 2.5, Zy: 2.5 },
+      '45x45x3': { weight: 2.2, area: 2.77, leg: 45, thick: 3, Ix: 9.2, Iy: 9.2, rx: 1.69, ry: 1.69, Zx: 1.65, Zy: 1.65 },
+      '45x45x4': { weight: 2.9, area: 3.70, leg: 45, thick: 4, Ix: 7.8, Iy: 7.8, rx: 1.45, ry: 1.45, Zx: 2.6, Zy: 2.6 },
+      '45x45x5': { weight: 3.6, area: 4.59, leg: 45, thick: 5, Ix: 10.0, Iy: 10.0, rx: 1.48, ry: 1.48, Zx: 3.3, Zy: 3.3 },
+      '45x45x6': { weight: 4.5, area: 5.68, leg: 45, thick: 6, Ix: 21.1, Iy: 21.1, rx: 1.93, ry: 1.93, Zx: 1.85, Zy: 1.85 },
+      '50x50x3': { weight: 2.4, area: 3.07, leg: 50, thick: 3, Ix: 12.6, Iy: 12.6, rx: 1.81, ry: 1.81, Zx: 1.77, Zy: 1.77 },
+      '50x50x4': { weight: 3.0, area: 3.86, leg: 50, thick: 4, Ix: 10.9, Iy: 10.9, rx: 1.68, ry: 1.68, Zx: 3.2, Zy: 3.2 },
+      '50x50x5': { weight: 3.9, area: 5.07, leg: 50, thick: 5, Ix: 22.6, Iy: 22.6, rx: 2.11, ry: 2.11, Zx: 1.97, Zy: 1.97 },
+      '50x50x6': { weight: 6.9, area: 9.1, leg: 50, thick: 6, Ix: 38.7, Iy: 38.7, rx: 2.50, ry: 2.50, Zx: 2.15, Zy: 2.15 },
+      '55x55x5': { weight: 4.1, area: 5.27, leg: 55, thick: 5, Ix: 15.8, Iy: 15.8, rx: 1.73, ry: 1.73, Zx: 4.3, Zy: 4.3 },
+      '55x55x6': { weight: 4.9, area: 6.26, leg: 55, thick: 6, Ix: 19.6, Iy: 19.6, rx: 1.77, ry: 1.77, Zx: 5.2, Zy: 5.2 },
+      '55x55x8': { weight: 6.4, area: 8.18, leg: 55, thick: 8, Ix: 26.3, Iy: 26.3, rx: 1.80, ry: 1.80, Zx: 6.6, Zy: 6.6 },
+      '55x55x10': { weight: 7.9, area: 10.0, leg: 55, thick: 10, Ix: 34.8, Iy: 34.8, rx: 1.87, ry: 1.87, Zx: 8.4, Zy: 8.4 },
+      '60x60x5': { weight: 4.5, area: 5.75, leg: 60, thick: 5, Ix: 22.6, Iy: 22.6, rx: 1.98, ry: 1.98, Zx: 5.9, Zy: 5.9 },
+      '60x60x6': { weight: 5.4, area: 6.84, leg: 60, thick: 6, Ix: 27.5, Iy: 27.5, rx: 2.01, ry: 2.01, Zx: 7.0, Zy: 7.0 },
+      '60x60x8': { weight: 7.0, area: 8.96, leg: 60, thick: 8, Ix: 38.7, Iy: 38.7, rx: 2.08, ry: 2.08, Zx: 9.4, Zy: 9.4 },
+      '60x60x10': { weight: 8.6, area: 11.0, leg: 60, thick: 10, Ix: 49.8, Iy: 49.8, rx: 2.13, ry: 2.13, Zx: 11.7, Zy: 11.7 },
+      '65x65x5': { weight: 4.9, area: 6.25, leg: 65, thick: 5, Ix: 30.6, Iy: 30.6, rx: 2.21, ry: 2.21, Zx: 7.4, Zy: 7.4 },
+      '65x65x6': { weight: 5.8, area: 7.44, leg: 65, thick: 6, Ix: 37.4, Iy: 37.4, rx: 2.24, ry: 2.24, Zx: 8.9, Zy: 8.9 },
+      '65x65x8': { weight: 7.7, area: 9.76, leg: 65, thick: 8, Ix: 52.9, Iy: 52.9, rx: 2.32, ry: 2.32, Zx: 12.1, Zy: 12.1 },
+      '65x65x10': { weight: 9.4, area: 12.0, leg: 65, thick: 10, Ix: 68.0, Iy: 68.0, rx: 2.38, ry: 2.38, Zx: 15.1, Zy: 15.1 },
+      '70x70x5': { weight: 5.3, area: 6.77, leg: 70, thick: 5, Ix: 39.4, Iy: 39.4, rx: 2.41, ry: 2.41, Zx: 9.0, Zy: 9.0 },
+      '70x70x6': { weight: 6.3, area: 8.06, leg: 70, thick: 6, Ix: 48.0, Iy: 48.0, rx: 2.44, ry: 2.44, Zx: 10.6, Zy: 10.6 },
+      '70x70x8': { weight: 8.3, area: 10.6, leg: 70, thick: 8, Ix: 67.8, Iy: 67.8, rx: 2.53, ry: 2.53, Zx: 14.6, Zy: 14.6 },
+      '70x70x10': { weight: 10.2, area: 13.0, leg: 70, thick: 10, Ix: 88.6, Iy: 88.6, rx: 2.61, ry: 2.61, Zx: 18.7, Zy: 18.7 },
+      '75x75x5': { weight: 5.7, area: 7.27, leg: 75, thick: 5, Ix: 49.8, Iy: 49.8, rx: 2.62, ry: 2.62, Zx: 10.9, Zy: 10.9 },
+      '75x75x6': { weight: 6.8, area: 8.66, leg: 75, thick: 6, Ix: 60.7, Iy: 60.7, rx: 2.66, ry: 2.66, Zx: 13.1, Zy: 13.1 },
+      '75x75x8': { weight: 8.9, area: 11.4, leg: 75, thick: 8, Ix: 87.2, Iy: 87.2, rx: 2.77, ry: 2.77, Zx: 18.4, Zy: 18.4 },
+      '75x75x10': { weight: 11.0, area: 14.0, leg: 75, thick: 10, Ix: 115, Iy: 115, rx: 2.86, ry: 2.86, Zx: 23.7, Zy: 23.7 },
+      '80x80x6': { weight: 7.3, area: 9.29, leg: 80, thick: 6, Ix: 80.1, Iy: 80.1, rx: 2.93, ry: 2.93, Zx: 16.1, Zy: 16.1 },
+      '80x80x8': { weight: 9.6, area: 12.2, leg: 80, thick: 8, Ix: 113, Iy: 113, rx: 3.04, ry: 3.04, Zx: 22.0, Zy: 22.0 },
+      '80x80x10': { weight: 11.8, area: 15.0, leg: 80, thick: 10, Ix: 146, Iy: 146, rx: 3.12, ry: 3.12, Zx: 27.9, Zy: 27.9 },
+      '80x80x12': { weight: 14.0, area: 17.8, leg: 80, thick: 12, Ix: 184, Iy: 184, rx: 3.22, ry: 3.22, Zx: 34.7, Zy: 34.7 },
+      '90x90x6': { weight: 8.2, area: 10.5, leg: 90, thick: 6, Ix: 116, Iy: 116, rx: 3.33, ry: 3.33, Zx: 21.2, Zy: 21.2 },
+      '90x90x8': { weight: 10.8, area: 13.8, leg: 90, thick: 8, Ix: 166, Iy: 166, rx: 3.47, ry: 3.47, Zx: 29.7, Zy: 29.7 },
+      '90x90x10': { weight: 13.4, area: 17.0, leg: 90, thick: 10, Ix: 218, Iy: 218, rx: 3.59, ry: 3.59, Zx: 37.7, Zy: 37.7 },
+      '90x90x12': { weight: 15.8, area: 20.2, leg: 90, thick: 12, Ix: 275, Iy: 275, rx: 3.70, ry: 3.70, Zx: 46.0, Zy: 46.0 },
+      '100x100x6': { weight: 9.2, area: 11.7, leg: 100, thick: 6, Ix: 177, Iy: 177, rx: 3.89, ry: 3.89, Zx: 29.2, Zy: 29.2 },
+      '100x100x8': { weight: 12.1, area: 15.4, leg: 100, thick: 8, Ix: 255, Iy: 255, rx: 4.07, ry: 4.07, Zx: 40.8, Zy: 40.8 },
+      '100x100x10': { weight: 14.9, area: 19.0, leg: 100, thick: 10, Ix: 334, Iy: 334, rx: 4.20, ry: 4.20, Zx: 52.1, Zy: 52.1 },
+      '100x100x12': { weight: 17.7, area: 22.6, leg: 100, thick: 12, Ix: 423, Iy: 423, rx: 4.33, ry: 4.33, Zx: 64.7, Zy: 64.7 },
+      '110x110x8': { weight: 13.4, area: 17.1, leg: 110, thick: 8, Ix: 313, Iy: 313, rx: 4.28, ry: 4.28, Zx: 55.1, Zy: 55.1 },
+      '110x110x10': { weight: 16.6, area: 21.1, leg: 110, thick: 10, Ix: 405, Iy: 405, rx: 4.38, ry: 4.38, Zx: 71.7, Zy: 71.7 },
+      '110x110x12': { weight: 19.7, area: 25.1, leg: 110, thick: 12, Ix: 510, Iy: 510, rx: 4.51, ry: 4.51, Zx: 87.6, Zy: 87.6 },
+      '110x110x16': { weight: 25.7, area: 32.8, leg: 110, thick: 16, Ix: 745, Iy: 745, rx: 4.77, ry: 4.77, Zx: 124, Zy: 124 },
+      '130x130x8': { weight: 15.9, area: 20.3, leg: 130, thick: 8, Ix: 476, Iy: 476, rx: 4.86, ry: 4.86, Zx: 71.0, Zy: 71.0 },
+      '130x130x10': { weight: 19.7, area: 25.1, leg: 130, thick: 10, Ix: 634, Iy: 634, rx: 5.03, ry: 5.03, Zx: 94.0, Zy: 94.0 },
+      '130x130x12': { weight: 23.5, area: 29.9, leg: 130, thick: 12, Ix: 757, Iy: 757, rx: 5.11, ry: 5.11, Zx: 110, Zy: 110 },
+      '130x130x16': { weight: 30.7, area: 39.2, leg: 130, thick: 16, Ix: 1050, Iy: 1050, rx: 5.17, ry: 5.17, Zx: 142, Zy: 142 },
+      '150x150x10': { weight: 22.9, area: 29.2, leg: 150, thick: 10, Ix: 893, Iy: 893, rx: 5.54, ry: 5.54, Zx: 116, Zy: 116 },
+      '150x150x12': { weight: 27.3, area: 34.8, leg: 150, thick: 12, Ix: 1160, Iy: 1160, rx: 5.77, ry: 5.77, Zx: 151, Zy: 151 },
+      '150x150x16': { weight: 35.8, area: 45.6, leg: 150, thick: 16, Ix: 1590, Iy: 1590, rx: 5.94, ry: 5.94, Zx: 196, Zy: 196 },
+      '150x150x20': { weight: 44.1, area: 56.2, leg: 150, thick: 20, Ix: 2040, Iy: 2040, rx: 6.03, ry: 6.03, Zx: 249, Zy: 249 },
+      '200x200x12': { weight: 36.9, area: 46.9, leg: 200, thick: 12, Ix: 1830, Iy: 1830, rx: 6.24, ry: 6.24, Zx: 174, Zy: 174 },
+      '200x200x16': { weight: 48.5, area: 61.8, leg: 200, thick: 16, Ix: 2370, Iy: 2370, rx: 6.24, ry: 6.24, Zx: 225, Zy: 225 },
+      '200x200x20': { weight: 60.0, area: 76.4, leg: 200, thick: 20, Ix: 2880, Iy: 2880, rx: 6.14, ry: 6.14, Zx: 274, Zy: 274 },
+      '200x200x25': { weight: 73.9, area: 94.1, leg: 200, thick: 25, Ix: 3470, Iy: 3470, rx: 6.07, ry: 6.07, Zx: 331, Zy: 331 }
+
+
+    }
+  };
+
+  function openSteelTab(tabName) {
+    const tabContents = document.querySelectorAll('.steel-tab-content');
+    const tabBtns = document.querySelectorAll('.steel-tab-btn');
+    tabContents.forEach(content => content.classList.remove('active'));
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+    event.currentTarget.classList.add('active');
+    closeProperties(); // Close modal when switching tabs
+  }
+
+  function updateSectionSizes() {
+  const type = document.getElementById('sectionType').value;
+  const sizeSelect = document.getElementById('sectionSize');
+  const generateBtn = document.getElementById('generateBtn');
+  
+  sizeSelect.innerHTML = '<option value="">Select size</option>';
+  sizeSelect.disabled = !type;
+  
+  if (type && sectionData[type]) {
+    // Get all keys and sort them properly for ISA
+    let sizes = Object.keys(sectionData[type]);
+    
+    if (type === 'ISA') {
+      // Custom sort for ISA: first by leg size, then by thickness
+      sizes.sort((a, b) => {
+        const legA = parseInt(a.split('x')[0]);
+        const thickA = parseInt(a.split('x')[2]);
+        const legB = parseInt(b.split('x')[0]);
+        const thickB = parseInt(b.split('x')[2]);
+        
+        if (legA !== legB) {
+          return legA - legB; // Sort by leg size first
+        } else {
+          return thickA - thickB; // Then by thickness
+        }
+      });
+    } else {
+      // Numeric sort for ISMB/ISMC
+      sizes.sort((a, b) => parseInt(a) - parseInt(b));
+    }
+    
+    sizes.forEach(size => {
+      const option = document.createElement('option');
+      option.value = size;
+      option.textContent = size;
+      sizeSelect.appendChild(option);
+    });
+  }
+  
+  generateBtn.style.display = type ? 'block' : 'none';
+  document.getElementById('resultsSection').style.display = 'none';
+  closeProperties(); // Close modal when changing section type
+}
+
+
+  function generateSectionData() {
+    const type = document.getElementById('sectionType').value;
+    const size = document.getElementById('sectionSize').value;
+    
+    if (!type || !size) {
+      alert('Please select both section type and size');
+      return;
+    }
+    
+    const data = sectionData[type][size];
+    document.getElementById('sectionWeight').textContent = data.weight.toFixed(1);
+    document.getElementById('resultsSection').style.display = 'block';
+    document.getElementById('modalTitle').textContent = `${type} ${size}`;
+    closeProperties(); // Close modal when generating new data
+  }
+
+  function showProperties() {
+  const type = document.getElementById('sectionType').value;
+  const size = document.getElementById('sectionSize').value;
+  const data = sectionData[type][size];
+  
+  let propertiesHTML = `
+    <div class="properties-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+            <th>Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Weight</td><td>${data.weight.toFixed(1)}</td><td>kg/m</td></tr>
+          <tr><td>Sectional Area</td><td>${data.area.toFixed(1)}</td><td>cm²</td></tr>
+  `;
+  
+  if (type !== 'ISA') {
+    propertiesHTML += `
+          <tr><td>Depth (D)</td><td>${data.depth}</td><td>mm</td></tr>
+          <tr><td>Flange Width (B)</td><td>${data.flangeWidth}</td><td>mm</td></tr>
+          <tr><td>Flange Thickness (T)</td><td>${data.flangeThick}</td><td>mm</td></tr>
+          <tr><td>Web Thickness (t)</td><td>${data.webThick}</td><td>mm</td></tr>
+    `;
+  } else {
+    propertiesHTML += `
+          <tr><td>Leg Size</td><td>${data.leg}×${data.leg}×${data.thick}</td><td>mm</td></tr>
+    `;
+  }
+  
+  propertiesHTML += `
+          <tr><td>Moment of Inertia (Ix)</td><td>${data.Ix}</td><td>cm⁴</td></tr>
+          <tr><td>Moment of Inertia (Iy)</td><td>${data.Iy}</td><td>cm⁴</td></tr>
+          <tr><td>Radius of Gyration (rx)</td><td>${data.rx.toFixed(2)}</td><td>cm</td></tr>
+          <tr><td>Radius of Gyration (ry)</td><td>${data.ry.toFixed(2)}</td><td>cm</td></tr>
+          <tr><td>Section Modulus (Zx)</td><td>${data.Zx.toFixed(1)}</td><td>cm³</td></tr>
+          <tr><td>Section Modulus (Zy)</td><td>${data.Zy.toFixed(1)}</td><td>cm³</td></tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+  
+  document.getElementById('propertiesData').innerHTML = propertiesHTML;
+  document.getElementById('propertiesModal').style.display = 'flex';
+}
+
+
+  function closeProperties() {
+    document.getElementById('propertiesModal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('propertiesModal');
+    if (event.target == modal) closeProperties();
+  }
+
+  function calculatePlateWeight() {
+    const thickness = parseFloat(document.getElementById('plateThickness').value) / 1000;
+    const width = parseFloat(document.getElementById('plateWidth').value);
+    const length = parseFloat(document.getElementById('plateLength').value);
+    const density = 7850;
+    const volume = thickness * width * length;
+    const weight = (volume * density).toFixed(2);
+    document.getElementById('plateWeight').textContent = weight;
+  }
+</script>
+
+
+</body>
+</html>
