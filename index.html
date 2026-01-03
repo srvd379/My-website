@@ -159,5 +159,44 @@
   }
 </script>
 
+<script>
+  const scriptURL = https://script.google.com/macros/s/AKfycbxMn_OU37_fDK008rgHKAMu6EBhdFNwU_UDlxkSl4wA8QEZrxeoVIWjAUrqP-iHiMNW/exec; // Google Apps Script web app URL
+
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      subject: document.getElementById('subject').value.trim(),
+      message: document.getElementById('message').value.trim()
+    };
+
+    statusEl.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors', // Apps Script + static site
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      // With no-cors we assume success if no JS error thrown
+      statusEl.textContent = 'Message sent successfully!';
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = 'Something went wrong. Please try again later.';
+    }
+  });
+</script>
+  
 </body>
 </html>
+
