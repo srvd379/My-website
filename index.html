@@ -160,43 +160,36 @@
 </script>
 
 <script>
-  const scriptURL = https://script.google.com/macros/s/AKfycbxMn_OU37_fDK008rgHKAMu6EBhdFNwU_UDlxkSl4wA8QEZrxeoVIWjAUrqP-iHiMNW/exec; // Google Apps Script web app URL
+  const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; // Double-check this URL
 
-  const form = document.getElementById('contact-form');
-  const statusEl = document.getElementById('form-status');
+  const form = document.getElementById('contact-form'); // Match your form ID
+  const statusEl = document.getElementById('form-status'); // Match your status ID
 
-  form.addEventListener('submit', async function (e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const formData = {
-      name: document.getElementById('name').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      subject: document.getElementById('subject').value.trim(),
-      message: document.getElementById('message').value.trim()
-    };
+    const formData = new FormData(form); // This handles all inputs automatically
 
     statusEl.textContent = 'Sending...';
 
-    try {
-      const res = await fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors', // Apps Script + static site
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      // With no-cors we assume success if no JS error thrown
-      statusEl.textContent = 'Message sent successfully!';
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors', // Required for Apps Script + static sites
+      body: formData // FormData instead of JSON
+    })
+    .then(() => {
+      statusEl.innerHTML = '<span style="color: green;">Message sent successfully!</span>';
       form.reset();
-    } catch (err) {
-      console.error(err);
-      statusEl.textContent = 'Something went wrong. Please try again later.';
-    }
+    })
+    .catch((error) => {
+      console.error('Error!', error);
+      statusEl.innerHTML = '<span style="color: red;">Something went wrong. Please try again.</span>';
+    });
   });
 </script>
+
   
 </body>
 </html>
+
 
