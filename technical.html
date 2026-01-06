@@ -1,49 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Technical Developments — Saurav Dey</title>
-  <link rel="stylesheet" href="styles.css" />
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LYizXKf54SUooCxhZ0Imc3Bc3fMAQqzFky8nSFZDKccVmYcVk6ld_WMIQyD7lgndZzVx8HivsRwMMhm5nvjZx7qSdXe33SLD5_9cPdSoZ9YfYoxqE3VDrmAQ0oC8Qn-KTebn6G9H8bheaqmtiLjYAUqjqvgcRi9KCeoBjqwjBt_D7medEIKI6Zd0-Hlr7BMyK2apuWnaZHfUo8hLXaCr3FVVJUbLNEBShv3qiOT1zGVCcnAWlSDOFWS4Is2utYk0w5rdPv4XJaKcWiEX9CyE0Lukl2_MqDG48mgTS2nJ-ULWRAyrf4AjmRUnETR4eoxJintRFk2R7xDYL5zpN9VUh-9rtfVCWeZVIsW2PqNMwM4C_0WQNixQSMO1AUm8vjK6jiM6ByL1rUbVsKeLz-jGVRFAbVS0IGT49iBDOOv6oxTADvEtgfvjmvcgYdsB8WDsdrMUMrh7YbV6thm-kFJ4QOGtbOdDUVk65ujGH1gbCaKEt-KkKK9zm66UwapiLa1Cm-H40OU39-AlXnptS1HA0-ObZAR4MP-OvFmyBspmxSEkqS2vucXmW5FBBiga9-J7aGGmP3Klkqko_xbhlPOUPLsQsgvLkim6_KyhyMjcRZ6b9StJj2t1N1VsJavCH0pD6F2gnxfcIK9DOnbkTYLYAyu3zpEa0tbxsAd4Tq7vI3AJ4CLi4d89oyioRxKUp9Xro5gvyYKuaFmFG67mUr7aWY4MNWDxOnyfWpxiMuuMP0_pjW9S1d7C_o-Fjj9aqEiKrx8UsEbiFFYUZ_0jK3XJVdQpLwWC2zW1GOGhtVWgYVz-krJ1xWxOlM-SjH9Ry_LkK9fqUF8txWJWw4lzmqbHCiQTU4vNkIdzT2b54czv9iuc6wbpzedLi1S7v5ovZ6CChwmf268gxxguv_Mfoysi7I1u8lzrHyLvw80SNtGfH8MUZEEBpN8sn0Cdjen50-ncz7xiNc0wnuIEDHbUlPGZ3BGb7uxvGd53yUE6zcY65c3Tk1H2H8ox2koE2q7Eh2d3v0XI1nIb8Oc8OHT5fIzB4QoxuX5jX7FbEOnQ6jWabdrsiX7a5Ce4keW10KZ2SMgo3MYVIbpSFYwcEbYklJuCin3EWs4HhS8EObqQSMGyQZVaw3tWCkCNARyoRDC8DpgjKa441_4L1fB8nchuYeForn8Hz_UdbkgYS8htzpkQGmAEj2WdkSvIKcApLN1RXW5chkCpeuSxxD14qGXEz4VBvHI46vglo-PXbB5yKhcfnEUIQwnKzbnGfnIi6Jo4SRz7frFU05NLzQ-E6XsgZDay1B7BBswXxGGVtZNzTaW0XWlK4N_24ACwBWRVMOT48YZK4cNdz7IQ3qUXudWfJni7ajV9FdK74_rdKyf2KmxaNdlb9kI89YS0JcrFZ8iqFiOtvRl9R5SyoQohLmeMmGcc362BggQNlP0BKmtSNRlOkyAIDuy_YKB7PCCAtL5AGIGsg0xXWRlFV4D44cIPY2VohmBz5G-goDRBzX5LmVmWl79BHw7MhE0duf8rFEbinhHDpa6zoBa__iEwjTrjMsHHJ76Dh5Ndu5a2BVXpn1H5IUziGK3locWMosrb-OLhl-vIbmBqqzcx11eqqtOOkbrNwbWfGgJS052WglWo2hel-1AzIUEMUevdOeT0knswSdOHD5TjiAaNOksJ8M6TespdJw" nonce="28fdf0543980bafadd18d810ed6212a9" charset="UTF-8"></script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Developments - Saurav Dey</title>
+  <link rel="stylesheet" href="styles.css">
 
+  <style>
+    /* Enhanced tab styling - larger text + oval background */
+    .technical-tab-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.25rem;
+    }
 
-<header class="subpage-header">
-  <div class="container">
-    <div class="subpage-header-content">
-      <div class="profile-photo-wrapper">
-        <img src="Profile Photo.jpg" alt="Saurav Dey" class="profile-photo" />
-      </div>
-      <h1 class="subpage-name">Saurav Dey</h1>
-    </div>
-  </div>
-</header>
+    .technical-tab {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem 2.2rem; /* Increased padding */
+      border-radius: 50px; /* Perfect oval shape */
+      background: linear-gradient(135deg, #00b894, #00a085); /* Beautiful teal gradient */
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700; /* Bold */
+      font-size: 1.1rem; /* LARGER TEXT */
+      line-height: 1.4; /* Better readability for long text */
+      box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4); /* Glow effect */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      max-width: 95%;
+      white-space: normal; /* Allow text wrapping */
+      box-sizing: border-box;
+    }
 
+    .technical-tab:hover {
+      background: linear-gradient(135deg, #009970, #00b894);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0, 184, 148, 0.6);
+    }
+
+    .technical-tab:active {
+      transform: translateY(-2px);
+    }
+
+    /* Ensure subtitle has proper spacing */
+    .subtitle {
+      margin-top: 0.5rem;
+      margin-bottom: 1.75rem;
+      font-size: 1.05rem; /* Slightly larger subtitle */
+      color: #e5e7eb;
+    }
+  </style>
+</head>
 <body>
+  <!-- Header (same as steel-calculator.html & execution.html) -->
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="profile-photo-wrapper">
+        <img src="Profile Photo.jpg" alt="Photo of Saurav Dey" class="profile-photo">
+      </div>
+      <div class="intro">
+        <h1>Saurav Dey</h1>
+        <p class="tagline">Engineering Manager - LnT Construction Transportation Infrastructure</p>
+        <p class="tagline">Civil Engineer · Structural Designer · Construction Methods · Infrastructure</p>
+      </div>
+    </div>
+  </header>
+
   <main>
     <section class="works-section">
       <div class="container">
         <h2>Technical Developments</h2>
-        
-        <!-- Single highlighted tab (full-width) -->
+        <p class="subtitle">
+          Construction method for Pre-casting and Erection of Full Span Pre-tensioned Box Girders
+        </p>
+
+        <!-- Enhanced highlighted tab with larger text + oval background -->
         <div class="technical-tab-wrapper">
           <a href="technical-box-girder.html" class="technical-tab" target="_blank">
-            <span>Construction method for Pre-casting and Erection of Full Span Pre-tensioned Box Girders</span>
+            Construction method for Pre-casting &amp; Erection of Full Span Pre-tensioned Box Girders
           </a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Back to home button (exact same as steel-calculator.html & execution.html) -->
+  <!-- Back to home button (exact same as other pages) -->
   <div class="back-home-wrapper">
     <a href="index.html" class="back-home-btn" title="Back to Home">
       <span class="home-icon">←</span>
-      <!-- <span class="home-label">HOME</span> -->
+      <span class="home-label">HOME</span>
     </a>
   </div>
 </body>
 </html>
-
-
-
