@@ -5,88 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Technical Developments - Saurav Dey</title>
   <link rel="stylesheet" href="styles.css">
-
-  <style>
-    /* Remove any default top margin on body to kill the gap */
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Page-specific container spacing */
-    .technical-page main {
-      padding-top: 0;
-    }
-
-    .technical-page .works-section {
-      padding-top: 1.5rem;
-      padding-bottom: 3.5rem; /* space above back-to-home button */
-    }
-
-    .technical-page .works-section h2 {
-      margin-bottom: 0.75rem;
-    }
-
-    .technical-page .subtitle {
-      margin-top: 0;
-      margin-bottom: 1.5rem; /* exactly one line gap before tab */
-      text-align: center;
-    }
-
-    /* Single technical tab styling */
-    .technical-tab-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
-    .technical-tab {
-      display: inline-block;
-      padding: 0.9rem 1.6rem;
-      border-radius: 999px;
-      background: #00b894;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.98rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
-      text-align: center;
-      max-width: 90%;
-    }
-
-    .technical-tab:hover {
-      background: #009970;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-    }
-
-    .technical-tab span {
-      display: inline-block;
-      white-space: normal;
-    }
-
-    /* Fixed back-to-home button (bottom-right) */
-    .back-to-home {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #0077cc;
-      color: #ffffff;
-      padding: 0.6rem 1.1rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-    }
-
-    .back-to-home:hover {
-      background: #005ea5;
-    }
-  </style>
 </head>
-<body class="technical-page">
-  <!-- Header (same as other pages, with no extra gap above) -->
+<body>
+  <!-- Simple header like steel-calculator.html and execution.html -->
   <header class="site-header">
     <div class="container header-content">
       <div class="profile-photo-wrapper">
@@ -108,7 +29,7 @@
           Construction method for Pre-casting and Erection of Full Span Pre-tensioned Box Girders
         </p>
 
-        <!-- Single highlighted tab -->
+        <!-- Single highlighted tab (full-width) -->
         <div class="technical-tab-wrapper">
           <a href="technical-box-girder.html" class="technical-tab" target="_blank">
             <span>Construction method for Pre-casting &amp; Erection of Full Span Pre-tensioned Box Girders</span>
@@ -118,7 +39,12 @@
     </section>
   </main>
 
-  <!-- Fixed bottom-right Back to Home -->
-  <a href="index.html" class="back-to-home">← Back to Home</a>
+  <!-- Back to home button (exact same as steel-calculator.html & execution.html) -->
+  <div class="back-home-wrapper">
+    <a href="index.html" class="back-home-btn" title="Back to Home">
+      <span class="home-icon">←</span>
+      <span class="home-label">HOME</span>
+    </a>
+  </div>
 </body>
 </html>
