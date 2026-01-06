@@ -851,3 +851,74 @@ body {
   }
 }
 
+/* Accordion styles for technical-box-girder page */
+.accordion {
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid #e0e0e0;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1.2rem;
+  background: #f5f5f5;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.accordion-header:hover {
+  background: #e8e8e8;
+}
+
+.accordion-content {
+  display: none;
+  padding: 1rem 1.2rem 1.2rem;
+  background: #ffffff;
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+.accordion-content h3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.98rem;
+}
+
+.accordion-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0 1rem;
+  display: block;
+}
+
+/* Back to home floating button */
+.back-to-home {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #0077cc;
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.back-to-home:hover {
+  background: #005ea5;
+}
+
