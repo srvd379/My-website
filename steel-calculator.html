@@ -83,6 +83,9 @@
               <option value="ISMB">ISMB (Medium Beams)</option>
               <option value="ISMC">ISMC (Medium Channels)</option>
               <option value="ISA">ISA (Equal Angles)</option>
+	      <option value="SHS">SHS (Square Hollow Sections)</option>
+ 	      <option value="RHS">RHS (Rectangular Hollow Sections)</option>
+	      <option value="CHS">CHS (Circular Hollow Sections)</option>
             </select>
           </div>
     
@@ -133,38 +136,185 @@
   </section>
 
   <script>
-  // IS 808:1989 EXPANDED DATA [file:117]
-  const sectionData = {
-    ISMB: {
-      '100': { weight: 8.9, area: 11.4, depth: 100, flangeWidth: 50, flangeThick: 7.0, webThick: 4.7, Ix: 183, Iy: 12.9, rx: 4.00, ry: 1.05, Zx: 36.6, Zy: 5.16 },
-      '125': { weight: 13.3, area: 17.0, depth: 125, flangeWidth: 70, flangeThick: 8.0, webThick: 4.7, Ix: 445, Iy: 38.5, rx: 5.16, ry: 1.51, Zx: 71.2, Zy: 11.0 },
-      '150': { weight: 19.1, area: 24.3, depth: 150, flangeWidth: 75, flangeThick: 9.0, webThick: 5.0, Ix: 718, Iy: 46.8, rx: 6.13, ry: 1.57, Zx: 95.7, Zy: 12.5 },
-      '175': { weight: 19.6, area: 25.0, depth: 175, flangeWidth: 85, flangeThick: 10.0, webThick: 5.8, Ix: 1260, Iy: 76.7, rx: 7.13, ry: 1.75, Zx: 144, Zy: 18.0 },
-      '200': { weight: 24.2, area: 30.8, depth: 200, flangeWidth: 100, flangeThick: 11.0, webThick: 5.7, Ix: 2120, Iy: 137, rx: 8.29, ry: 2.11, Zx: 212, Zy: 27.4 },
-      '225': { weight: 31.1, area: 39.7, depth: 225, flangeWidth: 110, flangeThick: 12.0, webThick: 6.5, Ix: 3440, Iy: 218, rx: 9.31, ry: 2.34, Zx: 306, Zy: 39.7 },
-      '250': { weight: 37.3, area: 47.5, depth: 250, flangeWidth: 125, flangeThick: 13.0, webThick: 6.9, Ix: 5130, Iy: 335, rx: 10.4, ry: 2.65, Zx: 410, Zy: 53.5 },
-      '300': { weight: 46.0, area: 58.6, depth: 300, flangeWidth: 140, flangeThick: 14.0, webThick: 7.7, Ix: 8990, Iy: 486, rx: 12.4, ry: 2.86, Zx: 599, Zy: 69.5 },
-      '350': { weight: 52.4, area: 66.7, depth: 350, flangeWidth: 140, flangeThick: 14.0, webThick: 8.1, Ix: 13600, Iy: 538, rx: 14.3, ry: 2.84, Zx: 779, Zy: 76.8 },
-      '400': { weight: 61.5, area: 78.4, depth: 400, flangeWidth: 160, flangeThick: 14.0, webThick: 8.9, Ix: 20500, Iy: 622, rx: 16.2, ry: 2.82, Zx: 1020, Zy: 88.9 },
-      '450': { weight: 72.4, area: 92.2, depth: 450, flangeWidth: 150, flangeThick: 17.4, webThick: 9.4, Ix: 30400, Iy: 834, rx: 18.2, ry: 3.01, Zx: 1350, Zy: 111 },
-      '500': { weight: 86.9, area: 111, depth: 500, flangeWidth: 180, flangeThick: 17.2, webThick: 10.2, Ix: 45200, Iy: 1370, rx: 20.2, ry: 3.52, Zx: 1810, Zy: 152 },
-      '550': { weight: 104, area: 132, depth: 550, flangeWidth: 190, flangeThick: 19.3, webThick: 11.2, Ix: 64900, Iy: 1830, rx: 22.2, ry: 3.73, Zx: 2360, Zy: 193 },
-      '600': { weight: 123, area: 156, depth: 600, flangeWidth: 210, flangeThick: 20.3, webThick: 12.0, Ix: 91800, Iy: 2650, rx: 24.2, ry: 4.12, Zx: 3060, Zy: 252 }
-    },
-    ISMC: {
-      '75': { weight: 7.14, area: 9.10, depth: 75, flangeWidth: 40, flangeThick: 7.5, webThick: 4.8, Ix: 132, Iy: 7.85, rx: 2.94, ry: 1.19, Zx: 20.9, Zy: 4.81 },
-      '100': { weight: 9.56, area: 12.2, depth: 100, flangeWidth: 50, flangeThick: 7.7, webThick: 5.0, Ix: 192, Iy: 26.7, rx: 3.97, ry: 1.48, Zx: 33.5, Zy: 7.71 },
-      '125': { weight: 13.1, area: 16.7, depth: 125, flangeWidth: 65, flangeThick: 8.2, webThick: 5.3, Ix: 425, Iy: 61.1, rx: 5.05, ry: 1.91, Zx: 68.1, Zy: 13.4 },
-      '150': { weight: 16.8, area: 21.3, depth: 150, flangeWidth: 75, flangeThick: 9.0, webThick: 5.7, Ix: 788, Iy: 103, rx: 6.08, ry: 2.20, Zx: 105, Zy: 19.5 },
-      '175': { weight: 19.6, area: 24.9, depth: 175, flangeWidth: 75, flangeThick: 10.2, webThick: 6.0, Ix: 1240, Iy: 122, rx: 7.04, ry: 2.21, Zx: 141, Zy: 23.0 },
-      '200': { weight: 22.3, area: 28.5, depth: 200, flangeWidth: 75, flangeThick: 11.4, webThick: 6.2, Ix: 1830, Iy: 141, rx: 8.02, ry: 2.22, Zx: 181, Zy: 26.4 },
-      '225': { weight: 26.1, area: 33.3, depth: 225, flangeWidth: 80, flangeThick: 12.4, webThick: 6.5, Ix: 2710, Iy: 188, rx: 9.02, ry: 2.37, Zx: 241, Zy: 33.0 },
-      '250': { weight: 30.6, area: 39.0, depth: 250, flangeWidth: 82, flangeThick: 14.1, webThick: 7.2, Ix: 3880, Iy: 211, rx: 9.92, ry: 2.37, Zx: 307, Zy: 38.5 },
-      '300': { weight: 36.3, area: 46.2, depth: 300, flangeWidth: 90, flangeThick: 13.6, webThick: 7.5, Ix: 5920, Iy: 344, rx: 11.2, ry: 2.73, Zx: 395, Zy: 76.4 },
-      '400': { weight: 50.1, area: 63.9, depth: 400, flangeWidth: 100, flangeThick: 15.3, webThick: 8.8, Ix: 11000, Iy: 621, rx: 13.1, ry: 3.12, Zx: 550, Zy: 124 }
-    },
-    ISA: {
-      '20x20x3': { weight: 0.9, area: 1.12, leg: 20, thick: 3, Ix: 0.4, Iy: 0.4, rx: 0.59, ry: 0.59, Zx: 0.5, Zy: 0.5 },
+  // IS 808:1989 EXPANDED DATA + IS 4923:1997 SHS & RHS
+const sectionData = {
+  ISMB: {
+    '100': { weight: 8.9, area: 11.4, depth: 100, flangeWidth: 50, flangeThick: 7.0, webThick: 4.7, Ix: 183, Iy: 12.9, rx: 4.00, ry: 1.05, Zx: 36.6, Zy: 5.16 },
+    '125': { weight: 13.3, area: 17.0, depth: 125, flangeWidth: 70, flangeThick: 8.0, webThick: 4.7, Ix: 445, Iy: 38.5, rx: 5.16, ry: 1.51, Zx: 71.2, Zy: 11.0 },
+    '150': { weight: 19.1, area: 24.3, depth: 150, flangeWidth: 75, flangeThick: 9.0, webThick: 5.0, Ix: 718, Iy: 46.8, rx: 6.13, ry: 1.57, Zx: 95.7, Zy: 12.5 },
+    '175': { weight: 19.6, area: 25.0, depth: 175, flangeWidth: 85, flangeThick: 10.0, webThick: 5.8, Ix: 1260, Iy: 76.7, rx: 7.13, ry: 1.75, Zx: 144, Zy: 18.0 },
+    '200': { weight: 24.2, area: 30.8, depth: 200, flangeWidth: 100, flangeThick: 11.0, webThick: 5.7, Ix: 2120, Iy: 137, rx: 8.29, ry: 2.11, Zx: 212, Zy: 27.4 },
+    '225': { weight: 31.1, area: 39.7, depth: 225, flangeWidth: 110, flangeThick: 12.0, webThick: 6.5, Ix: 3440, Iy: 218, rx: 9.31, ry: 2.34, Zx: 306, Zy: 39.7 },
+    '250': { weight: 37.3, area: 47.5, depth: 250, flangeWidth: 125, flangeThick: 13.0, webThick: 6.9, Ix: 5130, Iy: 335, rx: 10.4, ry: 2.65, Zx: 410, Zy: 53.5 },
+    '300': { weight: 46.0, area: 58.6, depth: 300, flangeWidth: 140, flangeThick: 14.0, webThick: 7.7, Ix: 8990, Iy: 486, rx: 12.4, ry: 2.86, Zx: 599, Zy: 69.5 },
+    '350': { weight: 52.4, area: 66.7, depth: 350, flangeWidth: 140, flangeThick: 14.0, webThick: 8.1, Ix: 13600, Iy: 538, rx: 14.3, ry: 2.84, Zx: 779, Zy: 76.8 },
+    '400': { weight: 61.5, area: 78.4, depth: 400, flangeWidth: 160, flangeThick: 14.0, webThick: 8.9, Ix: 20500, Iy: 622, rx: 16.2, ry: 2.82, Zx: 1020, Zy: 88.9 },
+    '450': { weight: 72.4, area: 92.2, depth: 450, flangeWidth: 150, flangeThick: 17.4, webThick: 9.4, Ix: 30400, Iy: 834, rx: 18.2, ry: 3.01, Zx: 1350, Zy: 111 },
+    '500': { weight: 86.9, area: 111, depth: 500, flangeWidth: 180, flangeThick: 17.2, webThick: 10.2, Ix: 45200, Iy: 1370, rx: 20.2, ry: 3.52, Zx: 1810, Zy: 152 },
+    '550': { weight: 104, area: 132, depth: 550, flangeWidth: 190, flangeThick: 19.3, webThick: 11.2, Ix: 64900, Iy: 1830, rx: 22.2, ry: 3.73, Zx: 2360, Zy: 193 },
+    '600': { weight: 123, area: 156, depth: 600, flangeWidth: 210, flangeThick: 20.3, webThick: 12.0, Ix: 91800, Iy: 2650, rx: 24.2, ry: 4.12, Zx: 3060, Zy: 252 }
+  },
+  ISMC: {
+    '75': { weight: 7.14, area: 9.10, depth: 75, flangeWidth: 40, flangeThick: 7.5, webThick: 4.8, Ix: 132, Iy: 7.85, rx: 2.94, ry: 1.19, Zx: 20.9, Zy: 4.81 },
+    '100': { weight: 9.56, area: 12.2, depth: 100, flangeWidth: 50, flangeThick: 7.7, webThick: 5.0, Ix: 192, Iy: 26.7, rx: 3.97, ry: 1.48, Zx: 33.5, Zy: 7.71 },
+    '125': { weight: 13.1, area: 16.7, depth: 125, flangeWidth: 65, flangeThick: 8.2, webThick: 5.3, Ix: 425, Iy: 61.1, rx: 5.05, ry: 1.91, Zx: 68.1, Zy: 13.4 },
+    '150': { weight: 16.8, area: 21.3, depth: 150, flangeWidth: 75, flangeThick: 9.0, webThick: 5.7, Ix: 788, Iy: 103, rx: 6.08, ry: 2.20, Zx: 105, Zy: 19.5 },
+    '175': { weight: 19.6, area: 24.9, depth: 175, flangeWidth: 75, flangeThick: 10.2, webThick: 6.0, Ix: 1240, Iy: 122, rx: 7.04, ry: 2.21, Zx: 141, Zy: 23.0 },
+    '200': { weight: 22.3, area: 28.5, depth: 200, flangeWidth: 75, flangeThick: 11.4, webThick: 6.2, Ix: 1830, Iy: 141, rx: 8.02, ry: 2.22, Zx: 181, Zy: 26.4 },
+    '225': { weight: 26.1, area: 33.3, depth: 225, flangeWidth: 80, flangeThick: 12.4, webThick: 6.5, Ix: 2710, Iy: 188, rx: 9.02, ry: 2.37, Zx: 241, Zy: 33.0 },
+    '250': { weight: 30.6, area: 39.0, depth: 250, flangeWidth: 82, flangeThick: 14.1, webThick: 7.2, Ix: 3880, Iy: 211, rx: 9.92, ry: 2.37, Zx: 307, Zy: 38.5 },
+    '300': { weight: 36.3, area: 46.2, depth: 300, flangeWidth: 90, flangeThick: 13.6, webThick: 7.5, Ix: 5920, Iy: 344, rx: 11.2, ry: 2.73, Zx: 395, Zy: 76.4 },
+    '400': { weight: 50.1, area: 63.9, depth: 400, flangeWidth: 100, flangeThick: 15.3, webThick: 8.8, Ix: 11000, Iy: 621, rx: 13.1, ry: 3.12, Zx: 550, Zy: 124 }
+  },
+  SHS: {
+    '25x25x2.0': {weight: 1.36, area: 1.74, depth: 25, width: 25, thick: 2.0, Ix: 1.48, Iy: 1.48, rx: 0.92, ry: 0.92, Zx: 1.19, Zy: 1.19},
+'25x25x2.6': {weight: 1.69, area: 2.16, depth: 25, width: 25, thick: 2.6, Ix: 1.72, Iy: 1.72, rx: 0.89, ry: 0.89, Zx: 1.38, Zy: 1.38},
+'25x25x3.2': {weight: 1.98, area: 2.53, depth: 25, width: 25, thick: 3.2, Ix: 1.89, Iy: 1.89, rx: 0.86, ry: 0.86, Zx: 1.51, Zy: 1.51},
+'32x32x2.0': {weight: 1.8, area: 2.3, depth: 32, width: 32, thick: 2.0, Ix: 3.36, Iy: 3.36, rx: 1.21, ry: 1.21, Zx: 2.1, Zy: 2.1},
+'32x32x2.6': {weight: 2.26, area: 2.88, depth: 32, width: 32, thick: 2.6, Ix: 4.02, Iy: 4.02, rx: 1.18, ry: 1.18, Zx: 2.51, Zy: 2.51},
+'32x32x3.2': {weight: 2.69, area: 3.42, depth: 32, width: 32, thick: 3.2, Ix: 4.54, Iy: 4.54, rx: 1.15, ry: 1.15, Zx: 2.84, Zy: 2.84},
+'38x38x2.6': {weight: 2.75, area: 3.51, depth: 38, width: 38, thick: 2.6, Ix: 7.14, Iy: 7.14, rx: 1.43, ry: 1.43, Zx: 3.76, Zy: 3.76},
+'38x38x3.2': {weight: 3.29, area: 4.19, depth: 38, width: 38, thick: 3.2, Ix: 8.18, Iy: 8.18, rx: 1.4, ry: 1.4, Zx: 4.3, Zy: 4.3},
+'38x38x4.0': {weight: 3.95, area: 5.03, depth: 38, width: 38, thick: 4.0, Ix: 9.26, Iy: 9.26, rx: 1.36, ry: 1.36, Zx: 4.87, Zy: 4.87},
+'40x40x2.6': {weight: 2.92, area: 3.72, depth: 40, width: 40, thick: 2.6, Ix: 8.45, Iy: 8.45, rx: 1.51, ry: 1.51, Zx: 4.22, Zy: 4.22},
+'40x40x3.2': {weight: 3.49, area: 4.45, depth: 40, width: 40, thick: 3.2, Ix: 9.72, Iy: 9.72, rx: 1.48, ry: 1.48, Zx: 4.86, Zy: 4.86},
+'40x40x4.0': {weight: 4.2, area: 5.35, depth: 40, width: 40, thick: 4.0, Ix: 11.07, Iy: 11.07, rx: 1.44, ry: 1.44, Zx: 5.54, Zy: 5.54},
+'50x50x2.6': {weight: 3.74, area: 4.76, depth: 50, width: 50, thick: 2.6, Ix: 17.47, Iy: 17.47, rx: 1.92, ry: 1.92, Zx: 6.99, Zy: 6.99},
+'50x50x2.9': {weight: 4.12, area: 5.25, depth: 50, width: 50, thick: 2.9, Ix: 18.99, Iy: 18.99, rx: 1.9, ry: 1.9, Zx: 7.6, Zy: 7.6},
+'50x50x3.6': {weight: 4.98, area: 6.35, depth: 50, width: 50, thick: 3.6, Ix: 22.15, Iy: 22.15, rx: 1.87, ry: 1.87, Zx: 8.86, Zy: 8.86},
+'50x50x4.5': {weight: 6.02, area: 7.67, depth: 50, width: 50, thick: 4.5, Ix: 25.5, Iy: 25.5, rx: 1.82, ry: 1.82, Zx: 10.2, Zy: 10.2},
+'60x60x2.6': {weight: 4.55, area: 5.8, depth: 60, width: 60, thick: 2.6, Ix: 31.33, Iy: 31.33, rx: 2.33, ry: 2.33, Zx: 10.44, Zy: 10.44},
+'60x60x3.2': {weight: 5.5, area: 7.01, depth: 60, width: 60, thick: 3.2, Ix: 36.94, Iy: 36.94, rx: 2.3, ry: 2.3, Zx: 12.31, Zy: 12.31},
+'60x60x4.0': {weight: 6.71, area: 8.55, depth: 60, width: 60, thick: 4.0, Ix: 43.55, Iy: 43.55, rx: 2.26, ry: 2.26, Zx: 14.52, Zy: 14.52},
+'60x60x4.8': {weight: 7.85, area: 10.01, depth: 60, width: 60, thick: 4.8, Ix: 49.22, Iy: 49.22, rx: 2.22, ry: 2.22, Zx: 16.41, Zy: 16.41},
+'72x72x3.2': {weight: 6.71, area: 8.54, depth: 72, width: 72, thick: 3.2, Ix: 66.32, Iy: 66.32, rx: 2.79, ry: 2.79, Zx: 18.42, Zy: 18.42},
+'72x72x4.0': {weight: 8.22, area: 10.47, depth: 72, width: 72, thick: 4.0, Ix: 79.03, Iy: 79.03, rx: 2.75, ry: 2.75, Zx: 21.95, Zy: 21.95},
+'72x72x4.8': {weight: 9.66, area: 12.31, depth: 72, width: 72, thick: 4.8, Ix: 90.31, Iy: 90.31, rx: 2.71, ry: 2.71, Zx: 25.09, Zy: 25.09},
+'80x80x3.2': {weight: 7.51, area: 9.57, depth: 80, width: 80, thick: 3.2, Ix: 92.71, Iy: 92.71, rx: 3.11, ry: 3.11, Zx: 23.18, Zy: 23.18},
+'80x80x4.0': {weight: 9.22, area: 11.75, depth: 80, width: 80, thick: 4.0, Ix: 111.04, Iy: 111.04, rx: 3.07, ry: 3.07, Zx: 27.76, Zy: 27.76},
+'80x80x4.8': {weight: 10.87, area: 13.85, depth: 80, width: 80, thick: 4.8, Ix: 127.58, Iy: 127.58, rx: 3.04, ry: 3.04, Zx: 31.89, Zy: 31.89},
+'91.5x91.5x3.6': {weight: 9.67, area: 12.32, depth: 91.5, width: 91.5, thick: 3.6, Ix: 156.49, Iy: 156.49, rx: 3.56, ry: 3.56, Zx: 34.21, Zy: 34.21},
+'91.5x91.5x4.5': {weight: 11.88, area: 15.14, depth: 91.5, width: 91.5, thick: 4.5, Ix: 187.57, Iy: 187.57, rx: 3.52, ry: 3.52, Zx: 41, Zy: 41},
+'91.5x91.5x5.4': {weight: 14.01, area: 17.85, depth: 91.5, width: 91.5, thick: 5.4, Ix: 215.68, Iy: 215.68, rx: 3.48, ry: 3.48, Zx: 47.14, Zy: 47.14},
+'100x100x4.0': {weight: 11.73, area: 14.95, depth: 100, width: 100, thick: 4.0, Ix: 226.35, Iy: 226.35, rx: 3.89, ry: 3.89, Zx: 45.27, Zy: 45.27},
+'100x100x5.0': {weight: 14.41, area: 18.36, depth: 100, width: 100, thick: 5.0, Ix: 271.1, Iy: 271.1, rx: 3.84, ry: 3.84, Zx: 54.22, Zy: 54.22},
+'100x100x6.0': {weight: 16.98, area: 21.63, depth: 100, width: 100, thick: 6.0, Ix: 311.47, Iy: 311.47, rx: 3.79, ry: 3.79, Zx: 62.29, Zy: 62.29},
+'113.5x113.5x4.8': {weight: 15.92, area: 20.28, depth: 113.5, width: 113.5, thick: 4.8, Ix: 393.3, Iy: 393.3, rx: 4.4, ry: 4.4, Zx: 69.3, Zy: 69.3},
+'113.5x113.5x5.4': {weight: 17.74, area: 22.6, depth: 113.5, width: 113.5, thick: 5.4, Ix: 432.58, Iy: 432.58, rx: 4.38, ry: 4.38, Zx: 76.23, Zy: 76.23},
+'132x132x4.8': {weight: 18.71, area: 23.83, depth: 132, width: 132, thick: 4.8, Ix: 634.39, Iy: 634.39, rx: 5.16, ry: 5.16, Zx: 96.12, Zy: 96.12},
+'132x132x5.4': {weight: 20.88, area: 26.6, depth: 132, width: 132, thick: 5.4, Ix: 700.11, Iy: 700.11, rx: 5.13, ry: 5.13, Zx: 106.08, Zy: 106.08},
+'150x150x4.0': {weight: 18.01, area: 22.95, depth: 150, width: 150, thick: 4.0, Ix: 807.82, Iy: 807.82, rx: 5.93, ry: 5.93, Zx: 107.71, Zy: 107.71},
+'150x150x5.0': {weight: 22.26, area: 28.36, depth: 150, width: 150, thick: 5.0, Ix: 982.12, Iy: 982.12, rx: 5.89, ry: 5.89, Zx: 130.95, Zy: 130.95},
+'150x150x6.0': {weight: 26.4, area: 33.63, depth: 150, width: 150, thick: 6.0, Ix: 1145.91, Iy: 1145.91, rx: 5.84, ry: 5.84, Zx: 152.79, Zy: 152.79},
+'150x150x8.0': {weight: 34.38, area: 43.79, depth: 150, width: 150, thick: 8.0, Ix: 1443, Iy: 1443, rx: 5.74, ry: 5.74, Zx: 192.4, Zy: 192.4},
+'180x180x4.0': {weight: 21.78, area: 27.75, depth: 180, width: 180, thick: 4.0, Ix: 1421.74, Iy: 1421.74, rx: 7.16, ry: 7.16, Zx: 157.97, Zy: 157.97},
+'180x180x5.0': {weight: 26.97, area: 34.36, depth: 180, width: 180, thick: 5.0, Ix: 1736.87, Iy: 1736.87, rx: 7.11, ry: 7.11, Zx: 192.99, Zy: 192.99},
+'180x180x6.0': {weight: 32.05, area: 40.83, depth: 180, width: 180, thick: 6.0, Ix: 2036.52, Iy: 2036.52, rx: 7.06, ry: 7.06, Zx: 226.28, Zy: 226.28},
+'180x180x8.0': {weight: 41.91, area: 53.39, depth: 180, width: 180, thick: 8.0, Ix: 2590.73, Iy: 2590.73, rx: 6.97, ry: 6.97, Zx: 287.86, Zy: 287.86},
+'220x220x5.0': {weight: 33.25, area: 42.36, depth: 220, width: 220, thick: 5.0, Ix: 3238.12, Iy: 3238.12, rx: 8.74, ry: 8.74, Zx: 294.37, Zy: 294.37},
+'220x220x6.0': {weight: 39.59, area: 50.43, depth: 220, width: 220, thick: 6.0, Ix: 3813.36, Iy: 3813.36, rx: 8.7, ry: 8.7, Zx: 346.67, Zy: 346.67},
+'220x220x8.0': {weight: 51.96, area: 66.19, depth: 220, width: 220, thick: 8.0, Ix: 4894.99, Iy: 4894.99, rx: 8.6, ry: 8.6, Zx: 445, Zy: 445},
+'220x220x10.0': {weight: 63.92, area: 81.43, depth: 220, width: 220, thick: 10.0, Ix: 5887.19, Iy: 5887.19, rx: 8.5, ry: 8.5, Zx: 535.2, Zy: 535.2},
+'250x250x6.0': {weight: 45.24, area: 57.63, depth: 250, width: 250, thick: 6.0, Ix: 5672, Iy: 5672, rx: 9.92, ry: 9.92, Zx: 453.76, Zy: 453.76},
+'250x250x8.0': {weight: 59.5, area: 75.79, depth: 250, width: 250, thick: 8.0, Ix: 7315.65, Iy: 7315.65, rx: 9.82, ry: 9.82, Zx: 585.25, Zy: 585.25},
+'250x250x10.0': {weight: 73.34, area: 93.43, depth: 250, width: 250, thick: 10.0, Ix: 8842.29, Iy: 8842.29, rx: 9.73, ry: 9.73, Zx: 707.38, Zy: 707.38}
+
+  },
+
+  RHS: {
+    '40x20x2.0': {weight: 2.15, area: 2.74, depth: 40, width: 20, thick: 2.0, Ix: 8.38, Iy: 2.81, rx: 1.75, ry: 1.01, Zx: 3.35, Zy: 2.25},
+'40x20x2.6': {weight: 2.71, area: 3.46, depth: 40, width: 20, thick: 2.6, Ix: 10.16, Iy: 3.36, rx: 1.71, ry: 0.99, Zx: 4.06, Zy: 2.69},
+'40x20x3.2': {weight: 3.24, area: 4.13, depth: 40, width: 20, thick: 3.2, Ix: 11.63, Iy: 3.8, rx: 1.68, ry: 0.96, Zx: 4.65, Zy: 3.04},
+'40x20x4.0': {weight: 3.88, area: 4.95, depth: 40, width: 20, thick: 4.0, Ix: 13.13, Iy: 4.23, rx: 1.63, ry: 0.92, Zx: 5.25, Zy: 3.38},
+'50x25x2.6': {weight: 3.73, area: 4.76, depth: 50, width: 25, thick: 2.6, Ix: 22.76, Iy: 12.09, rx: 2.19, ry: 1.59, Zx: 7.59, Zy: 6.05},
+'50x25x2.9': {weight: 4.12, area: 5.25, depth: 50, width: 25, thick: 2.9, Ix: 24.74, Iy: 13.11, rx: 2.17, ry: 1.58, Zx: 8.25, Zy: 6.56},
+'50x25x3.6': {weight: 4.98, area: 6.35, depth: 50, width: 25, thick: 3.6, Ix: 28.9, Iy: 15.23, rx: 2.13, ry: 1.55, Zx: 9.63, Zy: 7.62},
+'50x25x4.5': {weight: 6.02, area: 7.67, depth: 50, width: 25, thick: 4.5, Ix: 33.31, Iy: 17.44, rx: 2.08, ry: 1.51, Zx: 11.1, Zy: 8.72},
+'60x40x2.6': {weight: 3.69, area: 4.7, depth: 60, width: 40, thick: 2.6, Ix: 25.15, Iy: 8.43, rx: 2.31, ry: 1.34, Zx: 7.62, Zy: 5.11},
+'60x40x2.9': {weight: 4.07, area: 5.19, depth: 60, width: 40, thick: 2.9, Ix: 27.33, Iy: 9.12, rx: 2.29, ry: 1.33, Zx: 8.28, Zy: 5.53},
+'60x40x3.6': {weight: 4.93, area: 6.28, depth: 60, width: 40, thick: 3.6, Ix: 31.87, Iy: 10.52, rx: 2.25, ry: 1.29, Zx: 9.66, Zy: 6.37},
+'60x40x4.5': {weight: 5.95, area: 7.58, depth: 60, width: 40, thick: 4.5, Ix: 36.64, Iy: 11.93, rx: 2.2, ry: 1.25, Zx: 11.1, Zy: 7.23},
+'75x50x2.6': {weight: 4.55, area: 5.8, depth: 75, width: 50, thick: 2.6, Ix: 46.58, Iy: 15.74, rx: 2.84, ry: 1.65, Zx: 11.65, Zy: 7.87},
+'75x50x3.2': {weight: 5.5, area: 7.01, depth: 75, width: 50, thick: 3.2, Ix: 54.94, Iy: 18.41, rx: 2.8, ry: 1.62, Zx: 13.74, Zy: 9.21},
+'75x50x4.0': {weight: 6.71, area: 8.55, depth: 75, width: 50, thick: 4.0, Ix: 64.79, Iy: 21.49, rx: 2.75, ry: 1.59, Zx: 16.2, Zy: 10.74},
+'75x50x4.8': {weight: 7.85, area: 10.01, depth: 75, width: 50, thick: 4.8, Ix: 73.22, Iy: 24.03, rx: 2.71, ry: 1.55, Zx: 18.3, Zy: 12.02},
+'80x40x3.2': {weight: 6.71, area: 8.54, depth: 80, width: 40, thick: 3.2, Ix: 98.61, Iy: 33.28, rx: 3.4, ry: 1.97, Zx: 20.54, Zy: 13.87},
+'80x40x4.0': {weight: 8.22, area: 10.47, depth: 80, width: 40, thick: 4.0, Ix: 117.54, Iy: 39.32, rx: 3.35, ry: 1.94, Zx: 24.49, Zy: 16.38},
+'80x40x4.8': {weight: 9.66, area: 12.31, depth: 80, width: 40, thick: 4.8, Ix: 134.35, Iy: 44.55, rx: 3.3, ry: 1.9, Zx: 27.99, Zy: 18.56},
+'96x48x4.8': {weight: 15.92, area: 20.28, depth: 96, width: 48, thick: 4.8, Ix: 555.16, Iy: 228.5, rx: 5.23, ry: 3.36, Zx: 76.57, Zy: 55.73},
+'96x48x5.4': {weight: 17.74, area: 22.6, depth: 96, width: 48, thick: 5.4, Ix: 610.85, Iy: 250.59, rx: 5.2, ry: 3.33, Zx: 84.26, Zy: 61.12},
+'122x61x4.8': {weight: 18.71, area: 23.83, depth: 122, width: 61, thick: 4.8, Ix: 917.13, Iy: 346.91, rx: 6.2, ry: 3.82, Zx: 106.64, Zy: 75.41},
+'122x61x5.4': {weight: 20.88, area: 26.59, depth: 122, width: 61, thick: 5.4, Ix: 1012.47, Iy: 381.74, rx: 6.17, ry: 3.79, Zx: 117.73, Zy: 82.99},
+'145x82x4.0': {weight: 18.01, area: 22.95, depth: 145, width: 82, thick: 4.0, Ix: 1199.71, Iy: 410.78, rx: 7.23, ry: 4.23, Zx: 119.97, Zy: 82.16},
+'145x82x5.0': {weight: 22.26, area: 28.36, depth: 145, width: 82, thick: 5.0, Ix: 1459.25, Iy: 496.94, rx: 7.17, ry: 4.19, Zx: 145.93, Zy: 99.39},
+'145x82x6.0': {weight: 26.4, area: 33.63, depth: 145, width: 82, thick: 6.0, Ix: 1703.31, Iy: 576.91, rx: 7.12, ry: 4.14, Zx: 170.33, Zy: 115.38},
+'172x92x4.0': {weight: 21.78, area: 27.75, depth: 172, width: 92, thick: 4.0, Ix: 2110.72, Iy: 725.35, rx: 8.72, ry: 5.11, Zx: 175.89, Zy: 120.89},
+'172x92x5.0': {weight: 26.97, area: 34.36, depth: 172, width: 92, thick: 5.0, Ix: 2579.67, Iy: 882.47, rx: 8.67, ry: 5.07, Zx: 214.97, Zy: 147.08},
+'172x92x6.0': {weight: 32.05, area: 40.83, depth: 172, width: 92, thick: 6.0, Ix: 3025.91, Iy: 1030.45, rx: 8.61, ry: 5.02, Zx: 252.16, Zy: 171.74},
+'172x92x8.0': {weight: 34.38, area: 43.79, depth: 172, width: 92, thick: 8.0, Ix: 2146.21, Iy: 719.19, rx: 7.0, ry: 4.05, Zx: 214.62, Zy: 143.84},
+'200x100x6.0': {weight: 40.53, area: 51.63, depth: 200, width: 100, thick: 6.0, Ix: 6073.51, Iy: 2079.57, rx: 10.85, ry: 6.35, Zx: 404.9, Zy: 277.28},
+'200x100x8.0': {weight: 53.22, area: 67.79, depth: 200, width: 100, thick: 8.0, Ix: 7807.95, Iy: 2654.12, rx: 10.73, ry: 6.26, Zx: 520.53, Zy: 353.88},
+'200x100x10.0': {weight: 65.49, area: 83.43, depth: 200, width: 100, thick: 10.0, Ix: 9403.9, Iy: 3173.71, rx: 10.62, ry: 6.17, Zx: 626.93, Zy: 423.16},
+'240x120x6.0': {weight: 45.24, area: 57.63, depth: 240, width: 120, thick: 6.0, Ix: 7370.23, Iy: 3962.19, rx: 11.31, ry: 8.29, Zx: 491.35, Zy: 396.22},
+'240x120x8.0': {weight: 59.5, area: 75.79, depth: 240, width: 120, thick: 8.0, Ix: 9513.66, Iy: 5097.04, rx: 11.2, ry: 8.2, Zx: 634.24, Zy: 509.7},
+'240x120x10.0': {weight: 73.34, area: 93.43, depth: 240, width: 120, thick: 10.0, Ix: 11507.24, Iy: 6144.3, rx: 11.1, ry: 8.11, Zx: 767.15, Zy: 614.43},
+'300x150x6.0': {weight: 40.53, area: 51.63, depth: 300, width: 150, thick: 6.0, Ix: 6073.51, Iy: 2079.57, rx: 10.85, ry: 6.35, Zx: 404.9, Zy: 277.28},
+'300x150x8.0': {weight: 53.22, area: 67.79, depth: 300, width: 150, thick: 8.0, Ix: 7807.95, Iy: 2654.12, rx: 10.73, ry: 6.26, Zx: 520.53, Zy: 353.88},
+'300x150x10.0': {weight: 65.49, area: 83.43, depth: 300, width: 150, thick: 10.0, Ix: 9403.9, Iy: 3173.71, rx: 10.62, ry: 6.17, Zx: 626.93, Zy: 423.16},
+'300x200x6.0': {weight: 45.24, area: 57.63, depth: 300, width: 200, thick: 6.0, Ix: 7370.23, Iy: 3962.19, rx: 11.31, ry: 8.29, Zx: 491.35, Zy: 396.22},
+'300x200x8.0': {weight: 59.5, area: 75.79, depth: 300, width: 200, thick: 8.0, Ix: 9513.66, Iy: 5097.04, rx: 11.2, ry: 8.2, Zx: 634.24, Zy: 509.7},
+'300x200x10.0': {weight: 73.34, area: 93.43, depth: 300, width: 200, thick: 10.0, Ix: 11507.24, Iy: 6144.3, rx: 11.1, ry: 8.11, Zx: 767.15, Zy: 614.43}
+
+  },
+
+  CHS: {
+    'NB15x2.0': {weight: 0.95, area: 1.21, size: 15, thick: 2.0, Ix: 0.57, Iy: 0.57, rx: 0.69, ry: 0.69, Zx: 0.54, Zy: 0.54},
+'NB15x2.6': {weight: 1.21, area: 1.53, size: 15, thick: 2.6, Ix: 0.69, Iy: 0.69, rx: 0.66, ry: 0.66, Zx: 0.64, Zy: 0.64},
+'NB15x3.2': {weight: 1.44, area: 1.82, size: 15, thick: 3.2, Ix: 0.75, Iy: 0.75, rx: 0.65, ry: 0.65, Zx: 0.7, Zy: 0.7},
+'NB20x2.6': {weight: 1.38, area: 1.78, size: 20, thick: 2.6, Ix: 1.36, Iy: 1.36, rx: 0.87, ry: 0.87, Zx: 1.01, Zy: 1.01},
+'NB20x3.2': {weight: 1.87, area: 2.38, size: 20, thick: 3.2, Ix: 1.7, Iy: 1.7, rx: 0.84, ry: 0.84, Zx: 1.26, Zy: 1.26},
+'NB20x4.0': {weight: 2.93, area: 3.73, size: 20, thick: 4.0, Ix: 4.19, Iy: 4.19, rx: 1.05, ry: 1.05, Zx: 2.48, Zy: 2.48},
+'NB25x2.6': {weight: 1.98, area: 2.54, size: 25, thick: 2.6, Ix: 3.09, Iy: 3.09, rx: 1.1, ry: 1.1, Zx: 1.83, Zy: 1.83},
+'NB25x3.2': {weight: 2.41, area: 3.06, size: 25, thick: 3.2, Ix: 3.61, Iy: 3.61, rx: 1.08, ry: 1.08, Zx: 2.14, Zy: 2.14},
+'NB25x4.0': {weight: 2.93, area: 3.73, size: 25, thick: 4.0, Ix: 4.19, Iy: 4.19, rx: 1.05, ry: 1.05, Zx: 2.48, Zy: 2.48},
+'NB32x2.6': {weight: 2.54, area: 3.25, size: 32, thick: 2.6, Ix: 6.47, Iy: 6.47, rx: 1.41, ry: 1.41, Zx: 3.05, Zy: 3.05},
+'NB32x3.2': {weight: 3.01, area: 3.94, size: 32, thick: 3.2, Ix: 7.62, Iy: 7.62, rx: 1.39, ry: 1.39, Zx: 3.59, Zy: 3.59},
+'NB32x4.0': {weight: 3.79, area: 4.82, size: 32, thick: 4.0, Ix: 8.99, Iy: 8.99, rx: 1.36, ry: 1.36, Zx: 4.24, Zy: 4.24},
+'NB40x2.9': {weight: 3.23, area: 4.13, size: 40, thick: 2.9, Ix: 10.7, Iy: 10.7, rx: 1.61, ry: 1.61, Zx: 4.43, Zy: 4.43},
+'NB40x3.2': {weight: 3.56, area: 4.53, size: 40, thick: 3.2, Ix: 11.59, Iy: 11.59, rx: 1.59, ry: 1.59, Zx: 4.8, Zy: 4.8},
+'NB40x4.0': {weight: 4.37, area: 5.56, size: 40, thick: 4.0, Ix: 13.77, Iy: 13.77, rx: 1.57, ry: 1.57, Zx: 5.7, Zy: 5.7},
+'NB50x2.9': {weight: 4.08, area: 5.23, size: 50, thick: 2.9, Ix: 21.59, Iy: 21.59, rx: 2.03, ry: 2.03, Zx: 7.16, Zy: 7.16},
+'NB50x3.6': {weight: 5.03, area: 6.41, size: 50, thick: 3.6, Ix: 25.88, Iy: 25.88, rx: 2.0, ry: 2.0, Zx: 8.59, Zy: 8.59},
+'NB50x4.5': {weight: 6.19, area: 7.88, size: 50, thick: 4.5, Ix: 30.9, Iy: 30.9, rx: 1.98, ry: 1.98, Zx: 10.2, Zy: 10.2},
+'NB65x3.2': {weight: 5.71, area: 7.32, size: 65, thick: 3.2, Ix: 48.79, Iy: 48.79, rx: 2.58, ry: 2.58, Zx: 12.82, Zy: 12.82},
+'NB65x3.6': {weight: 6.42, area: 8.2, size: 65, thick: 3.6, Ix: 54.02, Iy: 54.02, rx: 2.57, ry: 2.57, Zx: 14.2, Zy: 14.2},
+'NB65x4.5': {weight: 7.93, area: 10.1, size: 65, thick: 4.5, Ix: 65.12, Iy: 65.12, rx: 2.54, ry: 2.54, Zx: 17.1, Zy: 17.1},
+'NB80x3.6': {weight: 8.36, area: 10.7, size: 80, thick: 3.6, Ix: 79.23, Iy: 79.23, rx: 3.03, ry: 3.03, Zx: 17.82, Zy: 17.82},
+'NB80x4.0': {weight: 9.9, area: 12.7, size: 80, thick: 4.0, Ix: 96.36, Iy: 96.36, rx: 3.0, ry: 3.0, Zx: 21.68, Zy: 21.68},
+'NB80x4.8': {weight: 9.75, area: 12.5, size: 80, thick: 4.8, Ix: 112.52, Iy: 112.52, rx: 2.98, ry: 2.98, Zx: 25.31, Zy: 25.31},
+'NB100x4.5': {weight: 12.2, area: 15.5, size: 100, thick: 4.5, Ix: 192.03, Iy: 192.03, rx: 3.92, ry: 3.92, Zx: 33.6, Zy: 33.6},
+'NB100x5.4': {weight: 14.5, area: 18.5, size: 100, thick: 5.4, Ix: 234.3, Iy: 234.3, rx: 3.89, ry: 3.89, Zx: 41.0, Zy: 41.0},
+'NB100x6.0': {weight: 15.0, area: 19.1, size: 100, thick: 6.0, Ix: 437.2, Iy: 437.2, rx: 4.78, ry: 4.78, Zx: 62.6, Zy: 62.6},
+'NB125x4.5': {weight: 15.9, area: 20.3, size: 125, thick: 4.5, Ix: 463.44, Iy: 463.44, rx: 4.77, ry: 4.77, Zx: 66.35, Zy: 66.35},
+'NB125x4.8': {weight: 17.9, area: 22.8, size: 125, thick: 4.8, Ix: 514.5, Iy: 514.5, rx: 4.75, ry: 4.75, Zx: 73.7, Zy: 73.7},
+'NB125x5.4': {weight: 14.5, area: 18.5, size: 125, thick: 5.4, Ix: 274.5, Iy: 274.5, rx: 3.85, ry: 3.85, Zx: 48.0, Zy: 48.0},
+'NB150x4.8': {weight: 25.38, area: 32.33, size: 150, thick: 4.8, Ix: 777.32, Iy: 777.32, rx: 7.58, ry: 7.58, Zx: 169.49, Zy: 169.49},
+'NB150x6.0': {weight: 31.51, area: 40.17, size: 150, thick: 6.0, Ix: 864.7, Iy: 864.7, rx: 7.54, ry: 7.54, Zx: 208.3, Zy: 208.3},
+'NB150x8.0': {weight: 41.67, area: 53.08, size: 150, thick: 8.0, Ix: 2960.82, Iy: 2960.82, rx: 7.47, ry: 7.47, Zx: 270.27, Zy: 270.27},
+'NB200x6.0': {weight: 39.51, area: 50.3, size: 200, thick: 6.0, Ix: 4487.08, Iy: 4487.08, rx: 9.44, ry: 9.44, Zx: 328.72, Zy: 328.72},
+'NB200x8.0': {weight: 52.3, area: 66.63, size: 200, thick: 8.0, Ix: 5854.07, Iy: 5854.07, rx: 9.37, ry: 9.37, Zx: 428.87, Zy: 428.87},
+'NB200x10.0': {weight: 64.89, area: 82.66, size: 200, thick: 10.0, Ix: 7156.97, Iy: 7156.97, rx: 9.31, ry: 9.31, Zx: 524.32, Zy: 524.32},
+'NB250x6.3': {weight: 49.36, area: 62.88, size: 250, thick: 6.3, Ix: 7932.09, Iy: 7932.09, rx: 11.23, ry: 11.23, Zx: 489.79, Zy: 489.79},
+'NB250x8.0': {weight: 62.35, area: 79.43, size: 250, thick: 8.0, Ix: 9914.07, Iy: 9914.07, rx: 11.17, ry: 11.17, Zx: 612.17, Zy: 612.17},
+'NB250x10.0': {weight: 77.44, area: 98.65, size: 250, thick: 10.0, Ix: 12163.24, Iy: 12163.24, rx: 11.1, ry: 11.1, Zx: 751.05, Zy: 751.05},
+'NB300x6.3': {weight: 62.35, area: 62.88, size: 300, thick: 6.3, Ix: 7932.09, Iy: 7932.09, rx: 11.23, ry: 11.23, Zx: 489.79, Zy: 489.79},
+'NB300x8.0': {weight: 62.35, area: 79.43, size: 300, thick: 8.0, Ix: 9914.07, Iy: 9914.07, rx: 11.17, ry: 11.17, Zx: 612.17, Zy: 612.17},
+'NB300x10.0': {weight: 77.44, area: 98.65, size: 300, thick: 10.0, Ix: 12163.24, Iy: 12163.24, rx: 11.1, ry: 11.1, Zx: 751.05, Zy: 751.05}
+
+  },
+
+  ISA: {
+    '20x20x3': { weight: 0.9, area: 1.12, leg: 20, thick: 3, Ix: 0.4, Iy: 0.4, rx: 0.59, ry: 0.59, Zx: 0.5, Zy: 0.5 },
       '20x20x4': { weight: 1.2, area: 1.53, leg: 20, thick: 4, Ix: 0.5, Iy: 0.5, rx: 0.63, ry: 0.63, Zx: 0.58, Zy: 0.58 },
       '25x25x3': { weight: 1.1, area: 1.45, leg: 25, thick: 3, Ix: 1.1, Iy: 1.1, rx: 0.91, ry: 0.91, Zx: 0.73, Zy: 0.73 },
       '25x25x4': { weight: 1.4, area: 1.84, leg: 25, thick: 4, Ix: 1.4, Iy: 1.4, rx: 0.91, ry: 0.91, Zx: 0.73, Zy: 0.73 },
@@ -237,51 +387,60 @@
       '200x200x20': { weight: 60.0, area: 76.4, leg: 200, thick: 20, Ix: 2880, Iy: 2880, rx: 6.14, ry: 6.14, Zx: 274, Zy: 274 },
       '200x200x25': { weight: 73.9, area: 94.1, leg: 200, thick: 25, Ix: 3470, Iy: 3470, rx: 6.07, ry: 6.07, Zx: 331, Zy: 331 }
 
-
-    }
-  };
-
-  function openSteelTab(tabName) {
-    const tabContents = document.querySelectorAll('.steel-tab-content');
-    const tabBtns = document.querySelectorAll('.steel-tab-btn');
-    tabContents.forEach(content => content.classList.remove('active'));
-    tabBtns.forEach(btn => btn.classList.remove('active'));
-    document.getElementById(tabName).classList.add('active');
-    event.currentTarget.classList.add('active');
-    closeProperties(); // Close modal when switching tabs
   }
+};
 
-  function updateSectionSizes() {
+function openSteelTab(tabName) {
+  const tabContents = document.querySelectorAll('.steel-tab-content');
+  const tabBtns = document.querySelectorAll('.steel-tab-btn');
+  tabContents.forEach(content => content.classList.remove('active'));
+  tabBtns.forEach(btn => btn.classList.remove('active'));
+  document.getElementById(tabName).classList.add('active');
+  event.currentTarget.classList.add('active');
+  closeProperties();
+}
+
+function updateSectionSizes() {
   const type = document.getElementById('sectionType').value;
   const sizeSelect = document.getElementById('sectionSize');
   const generateBtn = document.getElementById('generateBtn');
-  
+
   sizeSelect.innerHTML = '<option value="">Select size</option>';
   sizeSelect.disabled = !type;
-  
+
   if (type && sectionData[type]) {
-    // Get all keys and sort them properly for ISA
     let sizes = Object.keys(sectionData[type]);
-    
+
     if (type === 'ISA') {
-      // Custom sort for ISA: first by leg size, then by thickness
       sizes.sort((a, b) => {
         const legA = parseInt(a.split('x')[0]);
         const thickA = parseInt(a.split('x')[2]);
         const legB = parseInt(b.split('x')[0]);
         const thickB = parseInt(b.split('x')[2]);
-        
-        if (legA !== legB) {
-          return legA - legB; // Sort by leg size first
-        } else {
-          return thickA - thickB; // Then by thickness
-        }
+        if (legA !== legB) return legA - legB;
+        else return thickA - thickB;
       });
-    } else {
-      // Numeric sort for ISMB/ISMC
+    } else if (type === 'ISMB' || type === 'ISMC') {
       sizes.sort((a, b) => parseInt(a) - parseInt(b));
+    } else if (type === 'SHS') {
+      sizes.sort((a, b) => {
+        const sizeA = parseInt(a.split('x')[0]);
+        const sizeB = parseInt(b.split('x')[0]);
+        if (sizeA !== sizeB) return sizeA - sizeB;
+        return parseFloat(a.split('x')[2]) - parseFloat(b.split('x')[2]);
+      });
+    } else if (type === 'RHS') {
+      sizes.sort((a, b) => {
+        const depthA = parseInt(a.split('x')[0]);
+        const depthB = parseInt(b.split('x')[0]);
+        if (depthA !== depthB) return depthA - depthB;
+        const widthA = parseInt(a.split('x')[1]);
+        const widthB = parseInt(b.split('x')[1]);
+        if (widthA !== widthB) return widthA - widthB;
+        return parseFloat(a.split('x')[2]) - parseFloat(b.split('x')[2]);
+      });
     }
-    
+
     sizes.forEach(size => {
       const option = document.createElement('option');
       option.value = size;
@@ -289,34 +448,33 @@
       sizeSelect.appendChild(option);
     });
   }
-  
+
   generateBtn.style.display = type ? 'block' : 'none';
   document.getElementById('resultsSection').style.display = 'none';
-  closeProperties(); // Close modal when changing section type
+  closeProperties();
 }
 
+function generateSectionData() {
+  const type = document.getElementById('sectionType').value;
+  const size = document.getElementById('sectionSize').value;
 
-  function generateSectionData() {
-    const type = document.getElementById('sectionType').value;
-    const size = document.getElementById('sectionSize').value;
-    
-    if (!type || !size) {
-      alert('Please select both section type and size');
-      return;
-    }
-    
-    const data = sectionData[type][size];
-    document.getElementById('sectionWeight').textContent = data.weight.toFixed(1);
-    document.getElementById('resultsSection').style.display = 'block';
-    document.getElementById('modalTitle').textContent = `${type} ${size}`;
-    closeProperties(); // Close modal when generating new data
+  if (!type || !size) {
+    alert('Please select both section type and size');
+    return;
   }
 
-  function showProperties() {
+  const data = sectionData[type][size];
+  document.getElementById('sectionWeight').textContent = data.weight.toFixed(1);
+  document.getElementById('resultsSection').style.display = 'block';
+  document.getElementById('modalTitle').textContent = `${type} ${size}`;
+  closeProperties();
+}
+
+function showProperties() {
   const type = document.getElementById('sectionType').value;
   const size = document.getElementById('sectionSize').value;
   const data = sectionData[type][size];
-  
+
   let propertiesHTML = `
     <div class="properties-table">
       <table>
@@ -329,10 +487,30 @@
         </thead>
         <tbody>
           <tr><td>Weight</td><td>${data.weight.toFixed(1)}</td><td>kg/m</td></tr>
-          <tr><td>Sectional Area</td><td>${data.area.toFixed(1)}</td><td>cm²</td></tr>
+          <tr><td>Sectional Area</td><td>${data.area.toFixed(2)}</td><td>cm²</td></tr>
   `;
-  
-  if (type !== 'ISA') {
+
+  if (type === 'SHS') {
+    propertiesHTML += `
+          <tr><td>Size (D×D×t)</td><td>${data.depth}×${data.width}×${data.thick}</td><td>mm</td></tr>
+          <tr><td>Moment of Inertia (Ix/Iy)</td><td>${data.Ix.toFixed(2)}</td><td>cm⁴</td></tr>
+          <tr><td>Radius of Gyration (rx/ry)</td><td>${data.rx.toFixed(2)}</td><td>cm</td></tr>
+          <tr><td>Elastic Modulus (Zx/Zy)</td><td>${data.Zx.toFixed(2)}</td><td>cm³</td></tr>
+          <tr><td>Plastic Modulus (Sx/Sy)</td><td>${data.Zy.toFixed(2)}</td><td>cm³</td></tr>
+    `;
+  } else if (type === 'RHS') {
+    propertiesHTML += `
+          <tr><td>Depth (D)</td><td>${data.depth}</td><td>mm</td></tr>
+          <tr><td>Width (B)</td><td>${data.width}</td><td>mm</td></tr>
+          <tr><td>Thickness (t)</td><td>${data.thick}</td><td>mm</td></tr>
+          <tr><td>Moment of Inertia (Ix)</td><td>${data.Ix.toFixed(2)}</td><td>cm⁴</td></tr>
+          <tr><td>Moment of Inertia (Iy)</td><td>${data.Iy.toFixed(2)}</td><td>cm⁴</td></tr>
+          <tr><td>Radius of Gyration (rx)</td><td>${data.rx.toFixed(2)}</td><td>cm</td></tr>
+          <tr><td>Radius of Gyration (ry)</td><td>${data.ry.toFixed(2)}</td><td>cm</td></tr>
+          <tr><td>Elastic Modulus (Zx)</td><td>${data.Zx.toFixed(2)}</td><td>cm³</td></tr>
+          <tr><td>Elastic Modulus (Zy)</td><td>${data.Zy.toFixed(2)}</td><td>cm³</td></tr>
+    `;
+  } else if (type !== 'ISA') {
     propertiesHTML += `
           <tr><td>Depth (D)</td><td>${data.depth}</td><td>mm</td></tr>
           <tr><td>Flange Width (B)</td><td>${data.flangeWidth}</td><td>mm</td></tr>
@@ -344,7 +522,7 @@
           <tr><td>Leg Size</td><td>${data.leg}×${data.leg}×${data.thick}</td><td>mm</td></tr>
     `;
   }
-  
+
   propertiesHTML += `
           <tr><td>Moment of Inertia (Ix)</td><td>${data.Ix}</td><td>cm⁴</td></tr>
           <tr><td>Moment of Inertia (Iy)</td><td>${data.Iy}</td><td>cm⁴</td></tr>
@@ -356,34 +534,32 @@
       </table>
     </div>
   `;
-  
+
   document.getElementById('propertiesData').innerHTML = propertiesHTML;
   document.getElementById('propertiesModal').style.display = 'flex';
 }
 
+function closeProperties() {
+  document.getElementById('propertiesModal').style.display = 'none';
+}
 
-  function closeProperties() {
-    document.getElementById('propertiesModal').style.display = 'none';
-  }
+window.onclick = function(event) {
+  const modal = document.getElementById('propertiesModal');
+  if (event.target == modal) closeProperties();
+}
 
-  window.onclick = function(event) {
-    const modal = document.getElementById('propertiesModal');
-    if (event.target == modal) closeProperties();
-  }
+function calculatePlateWeight() {
+  const thickness = parseFloat(document.getElementById('plateThickness').value) / 1000;
+  const width = parseFloat(document.getElementById('plateWidth').value);
+  const length = parseFloat(document.getElementById('plateLength').value);
+  const density = 7850;
+  const volume = thickness * width * length;
+  const weight = (volume * density).toFixed(2);
+  document.getElementById('plateWeight').textContent = weight;
+}
 
-  function calculatePlateWeight() {
-    const thickness = parseFloat(document.getElementById('plateThickness').value) / 1000;
-    const width = parseFloat(document.getElementById('plateWidth').value);
-    const length = parseFloat(document.getElementById('plateLength').value);
-    const density = 7850;
-    const volume = thickness * width * length;
-    const weight = (volume * density).toFixed(2);
-    document.getElementById('plateWeight').textContent = weight;
-  }
 </script>
 
 
 </body>
 </html>
-
-
